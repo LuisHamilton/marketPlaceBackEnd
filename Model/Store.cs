@@ -1,6 +1,6 @@
 namespace Model;
 internal class Store
 {
-    private String name;
-    private String CNPJ;
+    private String name = "";
+    private String CNPJ = "";
 }

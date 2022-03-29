@@ -1,7 +1,7 @@
 namespace Model;
 internal class Product
 {
-    private String name;
+    private String name = "";
     private double unit_price;
-    private String bar_code;
+    private String bar_code = "";
 }

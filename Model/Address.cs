@@ -1,9 +1,9 @@
 namespace Model;
 internal class Address
 {
-    private String street;
-    private String city;    
-    private String state;   
-    private String country;
-    private String poste_code;
+    private String street = "";
+    private String city = "";    
+    private String state = "";   
+    private String country = "";
+    private String poste_code = "";
 }

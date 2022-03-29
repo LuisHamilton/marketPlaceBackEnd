@@ -1,2 +1,2 @@
 namespace Model;
-public class Owner : Person{}
+internal class Owner : Person{}
