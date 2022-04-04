@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F64Vjs8ZtFq/qpY6Y3pwCOJtrr8P7up5tAKSEYOrcdcsVmMD0BEbH2+PhLCAAjVlzggL8qd/dzsZFxG+jDI9sg==",
+  "dgSpecHash": "Ssb+hqtO14A3MjDbReuHP8Po6HwfA4w7WhQoie6kKpTIhQjvwJYSmFIoj9IV924lFqJ4vbBGLVd5n1ng1zirMQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
