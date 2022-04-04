@@ -19,8 +19,8 @@ public class Person
     //Métodos
     public Address getAddress(){return address;}
     public void setAddress(Address address){this.address=address;}
-    public String getname(){return name;}
-    public void setname(String name){this.name=name;}
+    public String getName(){return name;}
+    public void setName(String name){this.name=name;}
     public int getAge(){return age;}
     public void setAge(int age){this.age=age;}
     public String getDocument(){return document;}

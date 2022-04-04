@@ -2,13 +2,13 @@ namespace Model;
 public class Product
 {
     private String name = "";
-    private double unit_price;
-    private String bar_code = "";
+    private double unitPrice;
+    private String barCode = "";
 
     public String getName(){return name;}
-    public void SetName(String name){this.name=name;}
-    public double getUnit_price(){return unit_price;}
-    public void setUnit_price(double unit_price){this.unit_price=unit_price;}
-    public String getBar_code(){return bar_code;}
-    public void setBar_code(String bar_code){this.bar_code=bar_code;}
+    public void setName(String name){this.name=name;}
+    public double getUnitPrice(){return unitPrice;}
+    public void setUnitPrice(double unitPrice){this.unitPrice=unitPrice;}
+    public String getBarCode(){return barCode;}
+    public void setBarCode(String barCode){this.barCode=barCode;}
 }

@@ -6,7 +6,16 @@ public class Address
     private String city = "";    
     private String state = "";   
     private String country = "";
-    private String post_code = "";
+    private String postalCode = "";
+
+    public Address (String street, String city, String state, String country, String postalCode)
+    {
+        this.street=street;
+        this.city=city;
+        this.state=state;
+        this.country=country;
+        this.postalCode=postalCode;
+    }
 
     //Métodos
     public String getStreet(){ return street; }
@@ -21,6 +30,6 @@ public class Address
     public String getCountry(){return country;}
     public void setCountry(String country){this.country=country;}
 
-    public String getPost_code(){return post_code;}
-    public void setPost_code(String post_code){this.post_code=post_code;}
+    public String getPostalCode(){return postalCode;}
+    public void setPostalCode(String postalCode){this.postalCode=postalCode;}
 }
