@@ -1,7 +1,7 @@
 using Enums;
-
 namespace Model;
-public class Purchase
+using Interfaces;
+public class Purchase : IValidateDataObject<Purchase>
 {
     //Atributos
     private DateTime dataPurchase;
@@ -30,4 +30,17 @@ public class Purchase
     public void setPurchaseStatus(PurchaseStatusEnum purchaseStatus){this.purchaseStatus=(int)purchaseStatus;}
     public double getPurchaseValues() => purchaseValues;
     public void setPurchaseValues(double purchaseValues){this.purchaseValues=purchaseValues;}
+
+    public Boolean validateObject(Purchase obj)
+    {
+        if(obj.getDataPurchase() == null) { return false;}
+        if(obj.getPaymentType() == null) { return false;}
+        if(obj.getPurchaseStatus() == null) { return false;}
+        if(obj.getPurchaseValues() == null) { return false;}
+        if(obj.getNumberConfirmation() == null) { return false;}
+        if (obj.getNumberNf() == null) { return false; }
+        if (obj.getProducts() == null) { return false;}
+        if (obj.getClient() == null) { return false; }
+        return true;
+    }
 }

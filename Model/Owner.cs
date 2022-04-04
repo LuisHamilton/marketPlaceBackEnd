@@ -1,6 +1,8 @@
 namespace Model;
-public class Owner : Person
+using Interfaces;
+public class Owner : Person, IValidateDataObject<Owner>
 {
+    private Guid uuid = Guid.NewGuid();
     //Método para pegar a instância
     private static Owner instance;
     private Owner(Address address):base(address){}
@@ -12,5 +14,16 @@ public class Owner : Person
         }
         return instance;
     }
-    
+    public Boolean validateObject(Owner obj)
+    {
+        if (obj.getName() == null) { return false; }
+        if (obj.getAge() == null) { return false; }
+        if (obj.getDocument() == null) { return false; }
+        if (obj.getEmail() == null) { return false; }
+        if (obj.getPhone() == null) { return false; }
+        if (obj.getLogin() == null) { return false; }
+        if (obj.getAddress() == null) { return false; }
+        return true;
+    }
+
 }

@@ -1,5 +1,6 @@
 namespace Model;
-public class Address
+using Interfaces;
+public class Address : IValidateDataObject<Address>
 {
     //Atributos
     private String street = "";
@@ -32,4 +33,14 @@ public class Address
 
     public String getPostalCode(){return postalCode;}
     public void setPostalCode(String postalCode){this.postalCode=postalCode;}
+
+    public Boolean validateObject(Address obj)
+    {
+        if(obj.getStreet() == null) { return false; }
+        if(obj.getCity() == null) { return false; }
+        if(obj.getState() == null) { return false; }    
+        if(obj.getCountry() == null) { return false; }
+        if(obj.getPostalCode() == null) { return false; }
+        return true;
+    }
 }
