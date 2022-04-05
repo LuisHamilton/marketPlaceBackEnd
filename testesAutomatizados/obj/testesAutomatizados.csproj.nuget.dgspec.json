@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Enums\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Enums\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
         "projectName": "Interfaces",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -115,14 +115,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -139,11 +139,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Enums\\Enums.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj"
+              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj"
               }
             }
           }
@@ -176,14 +176,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
         "projectName": "testesAutomatizados",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\testesAutomatizados\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -200,8 +200,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj"
+              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\PastaCompartilhada\\projetosCSharpAvancado\\Model\\Model.csproj"
               }
             }
           }

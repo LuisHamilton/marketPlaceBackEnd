@@ -2,12 +2,12 @@
 public class Person
 {
     //Atributos
-    protected String name = "";
+    protected String name;
     protected int age;
-    protected String document = "";
-    protected String email = "";
-    protected String phone = "";
-    protected String login = "";
+    protected String document;
+    protected String email;
+    protected String phone;
+    protected String login;
     protected Address address; //Dependência
 
     //Construtor

@@ -3,8 +3,8 @@ using Interfaces;
 public class Store : IValidateDataObject<Store>
 {
     //Atributos
-    private String name = "";
-    private String CNPJ = "";
+    private String name;
+    private String CNPJ;
     private List<Purchase> purchases=new List<Purchase>();
     private Owner owner; //Dependência
 
@@ -26,10 +26,10 @@ public class Store : IValidateDataObject<Store>
 
     public Boolean validateObject(Store obj)
     {
-        if (obj.getName == null) { return false; }
-        if (obj.getCNPJ == null) { return false; }
-        if (obj.getPurchases == null) { return false; }
-        if (obj.getOwner == null) { return false; }
+        if (obj.getName() == null) { return false; }
+        if (obj.getCNPJ() == null) { return false; }
+        if (obj.getPurchases() == null) { return false; }
+        if (obj.getOwner() == null) { return false; }
         return true;
     }
 }

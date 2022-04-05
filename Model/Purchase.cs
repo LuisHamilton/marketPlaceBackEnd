@@ -34,9 +34,9 @@ public class Purchase : IValidateDataObject<Purchase>
     public Boolean validateObject(Purchase obj)
     {
         if(obj.getDataPurchase() == null) { return false;}
-        if(obj.getPaymentType() == null) { return false;}
-        if(obj.getPurchaseStatus() == null) { return false;}
-        if(obj.getPurchaseValues() == null) { return false;}
+        if(obj.getPaymentType() == 0) { return false;}
+        if(obj.getPurchaseStatus() == 0) { return false;}
+        if(obj.getPurchaseValues() == 0.0) { return false;}
         if(obj.getNumberConfirmation() == null) { return false;}
         if (obj.getNumberNf() == null) { return false; }
         if (obj.getProducts() == null) { return false;}

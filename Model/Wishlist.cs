@@ -19,8 +19,8 @@ public class WishList : IValidateDataObject<WishList>
 
     public Boolean validateObject(WishList obj)
     {
-        if (obj.getProducts == null) { return false; }
-        if (obj.getClient == null) { return false; }
+        if (obj.getProducts() == null) { return false; }
+        if (obj.getClient() == null) { return false; }
         return true;
     }
 }

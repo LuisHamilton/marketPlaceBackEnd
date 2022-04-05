@@ -8,10 +8,8 @@ public class Stocks : IValidateDataObject<Stocks>
     private Product product; //Dependência
 
     //Construtores
-    public Stocks(Store store, Product product)
+    public Stocks()
     {
-        this.store = store;
-        this.product = product;
     }
 
     //Métodos
@@ -24,9 +22,9 @@ public class Stocks : IValidateDataObject<Stocks>
 
     public Boolean validateObject(Stocks obj)
     {
-        if(obj.getQuantity==null){return false;}
-        if (obj.getStore == null) { return false; }
-        if (obj.getProduct == null) { return false; }
+        if(obj.getQuantity()==0){return false;}
+        if(obj.getStore() == null) { return false; }
+        if(obj.getProduct() == null) { return false; }
         return true;
     }  
 }
