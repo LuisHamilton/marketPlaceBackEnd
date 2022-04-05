@@ -43,4 +43,9 @@ public class Purchase : IValidateDataObject<Purchase>
         if (obj.getClient() == null) { return false; }
         return true;
     }
+
+    public void updateStatus(int PurchaseStatusEnum)
+    {
+        this.purchaseStatus = PurchaseStatusEnum;
+    }
 }
