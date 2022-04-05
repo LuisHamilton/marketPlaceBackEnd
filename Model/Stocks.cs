@@ -1,6 +1,6 @@
 namespace Model;
 using Interfaces;
-public class Stocks
+public class Stocks : IValidateDataObject<Stocks>
 {
     //Atributos
     private int quantity;
@@ -21,4 +21,12 @@ public class Stocks
     public void setProduct(Product product){this.product=product;}
     public int getQuantity(){return quantity;}
     public void setQuantity(int quantity){this.quantity=quantity;}
+
+    public Boolean validateObject(Stocks obj)
+    {
+        if(obj.getQuantity==null){return false;}
+        if (obj.getStore == null) { return false; }
+        if (obj.getProduct == null) { return false; }
+        return true;
+    }  
 }

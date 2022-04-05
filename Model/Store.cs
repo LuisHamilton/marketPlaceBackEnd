@@ -1,5 +1,6 @@
 namespace Model;
-public class Store
+using Interfaces;
+public class Store : IValidateDataObject<Store>
 {
     //Atributos
     private String name = "";
@@ -22,4 +23,13 @@ public class Store
     public void setName(String name){this.name=name;}
     public String getCNPJ(){return CNPJ;}
     public void setCNPJ(String CNPJ){this.CNPJ=CNPJ;}
+
+    public Boolean validateObject(Store obj)
+    {
+        if (obj.getName == null) { return false; }
+        if (obj.getCNPJ == null) { return false; }
+        if (obj.getPurchases == null) { return false; }
+        if (obj.getOwner == null) { return false; }
+        return true;
+    }
 }
