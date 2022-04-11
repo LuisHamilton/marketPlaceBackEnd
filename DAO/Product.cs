@@ -1,5 +1,4 @@
 namespace DAO;
-using Interfaces;
 public class Product
 {
     public int id;

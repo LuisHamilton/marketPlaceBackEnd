@@ -1,5 +1,4 @@
 namespace DAO;
-using Interfaces;
 public class WishList
 {
     //Atributo
