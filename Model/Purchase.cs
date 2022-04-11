@@ -7,9 +7,9 @@ public class Purchase : IValidateDataObject<Purchase>
     private DateTime dataPurchase;
     private int paymentType;
     private int purchaseStatus;
-    public double purchaseValues = 0;
-    private String numberConfirmation = "";
-    private String numberNf = "";
+    public double purchaseValues;
+    private String numberConfirmation;
+    private String numberNf;
     private List<Product> products = new List<Product>();
     private Client client; //Dependência
 

@@ -3,11 +3,11 @@ using Interfaces;
 public class Address : IValidateDataObject<Address>
 {
     //Atributos
-    private String street = "";
-    private String city = "";    
-    private String state = "";   
-    private String country = "";
-    private String postalCode = "";
+    private String street;
+    private String city;    
+    private String state;   
+    private String country;
+    private String postalCode;
 
     public Address (String street, String city, String state, String country, String postalCode)
     {
