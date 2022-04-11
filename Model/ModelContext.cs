@@ -1,6 +1,5 @@
-using System;
-using Microsoft.EntityFrameworkCore;
 namespace Model;
+using Microsoft.EntityFrameworkCore;
 
 public class ModelContext : DbContext
 {
@@ -13,4 +12,9 @@ public class ModelContext : DbContext
     public DbSet<Stocks> Stocks { get; set; }
     public DbSet<Store> Store { get; set; }
     public DbSet<WishList> WishList { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlServer("Data Source = JVLPC0571;" + "Initial Catalog = db_projetoCSharp; Integrated Security=True");
+    }
 }
