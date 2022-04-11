@@ -12,8 +12,11 @@ public class Purchase : IValidateDataObject<Purchase>
     private String numberNf;
     private List<Product> products = new List<Product>();
     private Client client; //Dependência
+    private Store store; //Dependência
 
     //Métodos
+    public Store getStore(){return this.store;}
+    public void setStore(Store store){this.store=store;}
     public Client getClient(){return this.client;}
     public void setClient(Client client){this.client=client;}
     public List<Product> getProducts(){return this.products;}
@@ -38,9 +41,10 @@ public class Purchase : IValidateDataObject<Purchase>
         if(obj.getPurchaseStatus() == 0) { return false;}
         if(obj.getPurchaseValues() == 0.0) { return false;}
         if(obj.getNumberConfirmation() == null) { return false;}
-        if (obj.getNumberNf() == null) { return false; }
-        if (obj.getProducts() == null) { return false;}
-        if (obj.getClient() == null) { return false; }
+        if(obj.getNumberNf() == null) { return false; }
+        if(obj.getProducts() == null) { return false;}
+        if(obj.getClient() == null) { return false; }
+        if(obj.getStore() == null) { return false; }
         return true;
     }
 

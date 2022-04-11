@@ -1,6 +1,6 @@
 namespace DAO;
 using Interfaces;
-public class Address : IValidateDataObject<Address>
+public class Address
 {
     //Atributos
     public int id;

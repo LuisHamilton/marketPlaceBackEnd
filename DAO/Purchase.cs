@@ -1,7 +1,7 @@
 using Enums;
 namespace DAO;
 using Interfaces;
-public class Purchase : IValidateDataObject<Purchase>
+public class Purchase
 {
     //Atributos
     public int id;
@@ -13,4 +13,5 @@ public class Purchase : IValidateDataObject<Purchase>
     public String numberNf;
     public Product products;
     public Client client; //Dependência
+    public Store store; //Dependência
 }

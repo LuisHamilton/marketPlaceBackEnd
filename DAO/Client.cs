@@ -1,7 +1,5 @@
 namespace DAO;
 using Interfaces;
-public class Client : Person, IValidateDataObject<Client>
+public class Client : Person
 { 
-    public Guid uuid= Guid.NewGuid();  
-    public static Client instance;
 }

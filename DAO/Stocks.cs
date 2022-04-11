@@ -1,6 +1,6 @@
 namespace DAO;
 using Interfaces;
-public class Stocks : IValidateDataObject<Stocks>
+public class Stocks
 {
     //Atributos
     private int id;

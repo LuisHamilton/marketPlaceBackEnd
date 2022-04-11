@@ -31,51 +31,6 @@ public class ModelContext : DbContext
             entity.Property(e=>e.country).IsRequired();
             entity.Property(e=>e.postalCode).IsRequired();
         });
-
-        modelBuilder.Entity<Product>(entity =>
-        {
-            entity.HasKey(e=>e.id);
-            entity.Property(e=>e.name).IsRequired();
-            entity.Property(e=>e.unitPrice).IsRequired();
-            entity.Property(e=>e.barCode).IsRequired();
-        });
-        modelBuilder.Entity<Purchase>(entity =>
-        {
-            entity.HasKey(e=>e.id);
-            entity.Property(e=>e.dataPurchase).IsRequired();
-            entity.Property(e=>e.paymentType).IsRequired();
-            entity.Property(e=>e.purchaseStatus).IsRequired();
-            entity.Property(e=>e.purchaseValues).IsRequired();
-            entity.Property(e=>e.numberConfirmation).IsRequired();
-            entity.Property(e=>e.numberNf).IsRequired();
-            entity.Property(e=>e.client).IsRequired();
-            entity.Property(e=>e.store).IsRequired();
-            entity.Property(e=>e.products).IsRequired();
-        });
-        modelBuilder.Entity<Stocks>(entity =>
-        {
-            entity.HasKey(e=>e.id);
-            entity.Property(e=>e.quantity).IsRequired();
-            entity.Property(e=>e.store).IsRequired();
-            entity.Property(e=>e.product).IsRequired();
-            
-        });
-        modelBuilder.Entity<Store>(entity =>
-        {
-            entity.HasKey(e=>e.id);
-            entity.Property(e=>e.name).IsRequired();
-            entity.Property(e=>e.CNPJ).IsRequired();
-            entity.Property(e=>e.owner).IsRequired();
-            entity.Property(e=>e.purchases).IsRequired();
-
-        });
-        modelBuilder.Entity<WishList>(entity =>
-        {
-            entity.HasKey(e=>e.id);
-            entity.Property(e=>e.product).IsRequired();
-            entity.Property(e=>e.client).IsRequired();
-
-        });
         modelBuilder.Entity<Client>(entity =>
         {
             entity.HasKey(e=>e.id);
@@ -85,7 +40,7 @@ public class ModelContext : DbContext
             entity.Property(e=>e.email).IsRequired();
             entity.Property(e=>e.phone).IsRequired();
             entity.Property(e=>e.login).IsRequired();
-            entity.Property(e=>e.address).IsRequired();
+            entity.HasOne(d=>d.address);
 
         });
         modelBuilder.Entity<Owner>(entity =>
@@ -97,7 +52,51 @@ public class ModelContext : DbContext
             entity.Property(e=>e.email).IsRequired();
             entity.Property(e=>e.phone).IsRequired();
             entity.Property(e=>e.login).IsRequired();
-            entity.Property(e=>e.address).IsRequired();
+            entity.HasOne(d=>d.address);
+
+        });
+
+        modelBuilder.Entity<Product>(entity =>
+        {
+            entity.HasKey(e=>e.id);
+            entity.Property(e=>e.name).IsRequired();
+            entity.Property(e=>e.unitPrice).IsRequired();
+            entity.Property(e=>e.barCode).IsRequired();
+        });
+        modelBuilder.Entity<Store>(entity =>
+        {
+            entity.HasKey(e=>e.id);
+            entity.Property(e=>e.name).IsRequired();
+            entity.Property(e=>e.CNPJ).IsRequired();
+            entity.HasOne(d=>d.owner);
+
+        });
+        modelBuilder.Entity<Purchase>(entity =>
+        {
+            entity.HasKey(e=>e.id);
+            entity.Property(e=>e.dataPurchase).IsRequired();
+            entity.Property(e=>e.paymentType).IsRequired();
+            entity.Property(e=>e.purchaseStatus).IsRequired();
+            entity.Property(e=>e.purchaseValues).IsRequired();
+            entity.Property(e=>e.numberConfirmation).IsRequired();
+            entity.Property(e=>e.numberNf).IsRequired();
+            entity.HasOne(d=>d.client);
+            entity.HasOne(d=>d.store);
+            entity.HasOne(d=>d.products);
+        });
+        modelBuilder.Entity<Stocks>(entity =>
+        {
+            entity.HasKey(e=>e.id);
+            entity.Property(e=>e.quantity).IsRequired();
+            entity.HasOne(d=>d.store);
+            entity.HasOne(d=>d.product);
+            
+        });
+        modelBuilder.Entity<WishList>(entity =>
+        {
+            entity.HasKey(e=>e.id);
+            entity.HasOne(d=>d.products);
+            entity.HasOne(d=>d.client);
 
         });
 

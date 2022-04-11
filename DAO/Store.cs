@@ -1,6 +1,6 @@
 namespace DAO;
 using Interfaces;
-public class Store : IValidateDataObject<Store>
+public class Store
 {
     //Atributos
     public int id;

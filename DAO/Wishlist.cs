@@ -1,8 +1,9 @@
 namespace DAO;
 using Interfaces;
-public class WishList : IValidateDataObject<WishList>
+public class WishList
 {
     //Atributo
-    private List<Product> products = new List<Product>();  
-    private Client client; //Dependência
+    public int id;
+    public Product products;  
+    public Client client; //Dependência
 }
