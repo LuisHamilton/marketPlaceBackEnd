@@ -4,7 +4,7 @@ public class Person
     //Atributos
     public int id;
     public String name;
-    public int age;
+    public DateTime dateOfBirth;
     public String document;
     public String email;
     public String phone;

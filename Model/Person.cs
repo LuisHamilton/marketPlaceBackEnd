@@ -3,7 +3,7 @@ public class Person
 {
     //Atributos
     protected String name;
-    protected int age;
+    protected DateTime dateOfBirth;
     protected String document;
     protected String email;
     protected String phone;
@@ -21,8 +21,8 @@ public class Person
     public void setAddress(Address address){this.address=address;}
     public String getName(){return name;}
     public void setName(String name){this.name=name;}
-    public int getAge(){return age;}
-    public void setAge(int age){this.age=age;}
+    public DateTime getDateOfBirth(){return dateOfBirth;}
+    public void setDateOfBirth(DateTime dateOfBirth){this.dateOfBirth=dateOfBirth;}
     public String getDocument(){return document;}
     public void setDocument(String document){this.document=document;}
     public String getEmail(){return email;}

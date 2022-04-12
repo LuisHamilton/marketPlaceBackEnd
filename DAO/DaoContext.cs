@@ -34,7 +34,7 @@ public class DaoContext : DbContext
         {
             entity.HasKey(e=>e.id);
             entity.Property(e=>e.name).IsRequired();
-            entity.Property(e=>e.age).IsRequired();
+            entity.Property(e=>e.dateOfBirth).IsRequired();
             entity.Property(e=>e.document).IsRequired();
             entity.Property(e=>e.email).IsRequired();
             entity.Property(e=>e.phone).IsRequired();
@@ -46,7 +46,7 @@ public class DaoContext : DbContext
         {
             entity.HasKey(e=>e.id);
             entity.Property(e=>e.name).IsRequired();
-            entity.Property(e=>e.age).IsRequired();
+            entity.Property(e=>e.dateOfBirth).IsRequired();
             entity.Property(e=>e.document).IsRequired();
             entity.Property(e=>e.email).IsRequired();
             entity.Property(e=>e.phone).IsRequired();
