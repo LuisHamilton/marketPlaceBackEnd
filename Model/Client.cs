@@ -1,6 +1,11 @@
-namespace Model;
+using System;
+using System.Collections.Generic;
 using Interfaces;
-public class Client : Person, IValidateDataObject<Client>
+using DAO;
+using DTO;
+
+namespace Model;
+public class Client : Person, IValidateDataObject//, IDataController<ClientDTO, Person>
 { 
     private Guid uuid= Guid.NewGuid();  
     //Método para pegar a instância
@@ -14,15 +19,20 @@ public class Client : Person, IValidateDataObject<Client>
         }
         return instance;
     }
-    public Boolean validateObject(Client obj)
+    // public List<ClientDTO> clientDTO = new List<ClientDTO>();
+    // public static Client convertDTOToModel(ClientDTO obj)
+    // {
+    //     return new Person(obj.name, obj.date_of_birth, obj.document, obj.email, obj.phone, obj.login, obj.address);
+    // }
+    public Boolean validateObject()
     {
-        if (obj.getName() == null) { return false; }
-        if (obj.getDateOfBirth() == null) { return false; }
-        if (obj.getDocument() == null) { return false; }
-        if (obj.getEmail() == null) { return false; }
-        if (obj.getPhone() == null) { return false; }
-        if (obj.getLogin() == null) { return false; }
-        if (obj.getAddress() == null) { return false; }
+        if (this.getName() == null) { return false; }
+        if (this.getDateOfBirth() == null) { return false; }
+        if (this.getDocument() == null) { return false; }
+        if (this.getEmail() == null) { return false; }
+        if (this.getPhone() == null) { return false; }
+        if (this.getLogin() == null) { return false; }
+        if (this.getAddress() == null) { return false; }
         return true;
     }
 }

@@ -3,7 +3,7 @@ public class OwnerDTO
 {
     //Atributos
     public String name;
-    public DateTime dateOfBirth;
+    public DateTime date_of_birth;
     public String document;
     public String email;
     public String phone;

@@ -1,6 +1,6 @@
 namespace Model;
 using Interfaces;
-public class Owner : Person, IValidateDataObject<Owner>
+public class Owner : Person, IValidateDataObject
 {
     private Guid uuid = Guid.NewGuid();
     //Método para pegar a instância
@@ -14,15 +14,15 @@ public class Owner : Person, IValidateDataObject<Owner>
         }
         return instance;
     }
-    public Boolean validateObject(Owner obj)
+    public Boolean validateObject()
     {
-        if (obj.getName() == null) { return false; }
-        if (obj.getDateOfBirth() == null) { return false; }
-        if (obj.getDocument() == null) { return false; }
-        if (obj.getEmail() == null) { return false; }
-        if (obj.getPhone() == null) { return false; }
-        if (obj.getLogin() == null) { return false; }
-        if (obj.getAddress() == null) { return false; }
+        if (this.getName() == null) { return false; }
+        if (this.getDateOfBirth() == null) { return false; }
+        if (this.getDocument() == null) { return false; }
+        if (this.getEmail() == null) { return false; }
+        if (this.getPhone() == null) { return false; }
+        if (this.getLogin() == null) { return false; }
+        if (this.getAddress() == null) { return false; }
         return true;
     }
 

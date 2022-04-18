@@ -1,6 +1,9 @@
-namespace Model;
+using Enums;
 using Interfaces;
-public class Store : IValidateDataObject<Store>
+using DAO;
+using DTO;
+namespace Model;
+public class Store : IValidateDataObject
 {
     //Atributos
     private String name;
@@ -8,13 +11,15 @@ public class Store : IValidateDataObject<Store>
     private List<Purchase> purchases=new List<Purchase>();
     private Owner owner; //Dependência
 
-    //Construtor
-    public Store(Owner owner)
-    {
-        this.owner = owner;
-    }
-
+    public List<StoreDTO>storeDTO = new List<StoreDTO>();
     //Métodos
+    public static Store convertDTOToModel(StoreDTO obj)
+    {
+        var store=new Store();
+        store.name=obj.name;
+        store.CNPJ=obj.CNPJ;
+        return store;
+    }
     public List<Purchase> getPurchases(){return purchases;}
     public void addNewPurchase(Purchase purchase){ purchases.Add(purchase); } //Adiciona compra a lista de compras
     public Owner getOwner(){return owner;}
@@ -24,12 +29,12 @@ public class Store : IValidateDataObject<Store>
     public String getCNPJ(){return CNPJ;}
     public void setCNPJ(String CNPJ){this.CNPJ=CNPJ;}
 
-    public Boolean validateObject(Store obj)
+    public Boolean validateObject()
     {
-        if (obj.getName() == null) { return false; }
-        if (obj.getCNPJ() == null) { return false; }
-        if (obj.getPurchases() == null) { return false; }
-        if (obj.getOwner() == null) { return false; }
+        if (this.getName() == null) { return false; }
+        if (this.getCNPJ() == null) { return false; }
+        if (this.getPurchases() == null) { return false; }
+        if (this.getOwner() == null) { return false; }
         return true;
     }
 }

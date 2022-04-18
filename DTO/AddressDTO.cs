@@ -6,6 +6,6 @@ public class AddressDTO
     public String state;
     public String city;
     public String country;
-    public String postalCode;
+    public String postal_code;
 
 }
