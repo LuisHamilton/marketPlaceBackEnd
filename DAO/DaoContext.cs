@@ -59,7 +59,6 @@ public class DaoContext : DbContext
         {
             entity.HasKey(e=>e.id);
             entity.Property(e=>e.name).IsRequired();
-            entity.Property(e=>e.unitPrice).IsRequired();
             entity.Property(e=>e.barCode).IsRequired();
         });
         modelBuilder.Entity<Store>(entity =>
@@ -87,6 +86,7 @@ public class DaoContext : DbContext
         {
             entity.HasKey(e=>e.id);
             entity.Property(e=>e.quantity).IsRequired();
+            entity.Property(e=>e.unitPrice).IsRequired();
             entity.HasOne(d=>d.store);
             entity.HasOne(d=>d.product);
             
