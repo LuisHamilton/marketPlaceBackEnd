@@ -8,6 +8,6 @@ public class ClientDTO
     public String email;
     public String phone;
     public String login;
-
     public String passwd;
+    public AddressDTO address; //Dependência
 }

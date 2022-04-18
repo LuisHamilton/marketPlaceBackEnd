@@ -81,7 +81,7 @@ public class TestValidateDataObject
     [Test]
     public void ValidateOwnerWithOutPhone(){
         Owner testOwner = Owner.getInstance(adr);
-        testOwner.setAge(25);        
+        testOwner.setDateOfBirth(DateTime.Parse("18/04/2002"));        
         testOwner.setEmail("joao@teste.com");
         testOwner.setName("João");
         testOwner.setLogin("joao@teste.com");
