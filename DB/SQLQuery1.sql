@@ -305,7 +305,9 @@ inner join tbl_Product as pd on pd.id_product = pp.fk_product
 where pd.id_product = 20
 
 /*Selecionar as compras de um determinado cliente*/
-select * from tbl_Purchase as pc inner join tbl_Client as cl on cl.id_client = pc.fk_client where pc.fk_client = 9
+select * from tbl_Purchase as pc 
+inner join tbl_Client as cl on cl.id_client = pc.fk_client 
+where cl.id_client = 9
 
 /*Selecionar as compras de um determinado cliente pelo CPF*/
 select * from tbl_Purchase as pc 
