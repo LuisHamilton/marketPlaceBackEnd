@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "testesAutomatizados/1.0.0": {
         "dependencies": {
+          "DTO": "1.0.0",
           "Microsoft.NET.Test.Sdk": "16.5.0",
           "Model": "1.0.0",
           "NUnit": "3.12.0",
@@ -1275,6 +1276,20 @@
           }
         }
       },
+      "DAO/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
+        },
+        "runtime": {
+          "DAO.dll": {}
+        }
+      },
+      "DTO/1.0.0": {
+        "runtime": {
+          "DTO.dll": {}
+        }
+      },
       "Enums/1.0.0": {
         "runtime": {
           "Enums.dll": {}
@@ -1287,6 +1302,8 @@
       },
       "Model/1.0.0": {
         "dependencies": {
+          "DAO": "1.0.0",
+          "DTO": "1.0.0",
           "Enums": "1.0.0",
           "Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.3",
@@ -2003,6 +2020,16 @@
       "sha512": "sha512-A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==",
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "DAO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Enums/1.0.0": {
       "type": "project",

@@ -49,13 +49,9 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
                 quantity = this.quantity,
                 unit_price= this.unit_price,
             };
-
             context.Stocks.Add(stocks);
-
             context.SaveChanges();
-
             id = stocks.id;
-
         }
          return id;
     }

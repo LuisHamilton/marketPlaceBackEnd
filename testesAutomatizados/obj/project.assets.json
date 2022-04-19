@@ -1757,6 +1757,30 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "DAO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
+        },
+        "compile": {
+          "bin/placeholder/DAO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DAO.dll": {}
+        }
+      },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
       "Enums/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1769,7 +1793,7 @@
       },
       "Interfaces/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
           "bin/placeholder/Interfaces.dll": {}
         },
@@ -1781,6 +1805,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "DAO": "1.0.0",
+          "DTO": "1.0.0",
           "Enums": "1.0.0",
           "Interfaces": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.3",
@@ -6238,6 +6264,16 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
+    "DAO/1.0.0": {
+      "type": "project",
+      "path": "../DAO/DAO.csproj",
+      "msbuildProject": "../DAO/DAO.csproj"
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
     "Enums/1.0.0": {
       "type": "project",
       "path": "../Enums/Enums.csproj",
@@ -6256,6 +6292,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "DTO >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "Model >= 1.0.0",
       "NUnit >= 3.12.0",
@@ -6268,11 +6305,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
       "projectName": "testesAutomatizados",
-      "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\testesAutomatizados\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\testesAutomatizados\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6289,8 +6326,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
-              "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj"
+            "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj"
+            },
+            "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj"
             }
           }
         }

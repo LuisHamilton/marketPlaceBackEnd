@@ -7,8 +7,4 @@ build_property.InvariantGlobalization =
 build_property.PlatformNeutralAssembly = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Enums
-<<<<<<< HEAD
-build_property.ProjectDir = c:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Enums\
-=======
-build_property.ProjectDir = c:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Enums\
->>>>>>> 014925827d49db72e92b0eb38beb54e7a8fae85d
+build_property.ProjectDir = C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Enums\
