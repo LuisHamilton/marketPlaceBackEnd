@@ -3,31 +3,38 @@ using Interfaces;
 using DAO;
 using DTO;
 namespace Model;
-public class Stocks : IValidateDataObject
+public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
 {
     //Atributos
     private int quantity;
     private Double unit_price;
     private Store store; //Dependência
     private Product product; //Dependência
-
     public List<StocksDTO>stocksDTO = new List<StocksDTO>();
+
+    //Construtor
+    public Stocks (Store store, Product product)
+    {
+        this.store = store;
+        this.product = product;
+    }
+
     //Métodos
     public static Stocks convertDTOToModel(StocksDTO obj)
     {
-        var stocks=new Stocks();
-        stocks.quantity=obj.quantity;
-        stocks.unit_price=obj.unit_price;
+        var stocks=new Stocks(Store.convertDTOToModel(obj.store), Product.convertDTOToModel(obj.product));
+        stocks.setQuantity(obj.quantity);
+        stocks.setUnitPrice(obj.unit_price);
         return stocks;
     }
     public Boolean validateObject()
     {
         if(this.getQuantity()==0){return false;}
+        if(this.getUnitPrice()==0.0){return false;}
         if(this.getStore() == null) { return false; }
         if(this.getProduct() == null) { return false; }
         return true;
     }  
-
     public void delete(StocksDTO obj)
     {
 
@@ -56,20 +63,15 @@ public class Stocks : IValidateDataObject
     {
 
     }
-
-
     public StocksDTO findById(int id)
     {
 
         return new StocksDTO();
     }
-
     public List<StocksDTO> getAll()
     {        
         return this.stocksDTO;      
     }
-
-   
     public StocksDTO convertModelToDTO()
     {
         var stocksDTO = new StocksDTO();
@@ -80,6 +82,8 @@ public class Stocks : IValidateDataObject
 
         return stocksDTO;
     }
+
+    //GETs e SETs
     public Store getStore(){return store;}
     public void setStore(Store store){this.store=store;}
     public Product getProduct(){return product;}

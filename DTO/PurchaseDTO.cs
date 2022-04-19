@@ -8,5 +8,6 @@ public class PurchaseDTO
     public Double purchase_values;
     public String number_confirmation;
     public String number_nf;
+    public ClientDTO client = new ClientDTO();
     public List<ProductDTO> products = new List<ProductDTO>();
 }

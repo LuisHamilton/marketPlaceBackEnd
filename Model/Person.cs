@@ -8,6 +8,7 @@ public class Person
     protected String email;
     protected String phone;
     protected String login;
+    protected String passwd;
     protected Address address; //Dependência
 
     //Construtor
@@ -16,7 +17,7 @@ public class Person
         this.address = address;
     }
 
-    //Métodos
+    //GETs e SETs
     public Address getAddress(){return this.address;}
     public void setAddress(Address address){this.address=address;}
     public String getName(){return this.name;}
@@ -31,4 +32,6 @@ public class Person
     public void setPhone(String phone){this.phone=phone;}
     public String getLogin(){return this.login;}
     public void setLogin(String login){this.login=login;}
+    public String getPasswd(){return this.passwd;}
+    public void setPasswd(String passwd){this.passwd=passwd;}
 }

@@ -3,7 +3,7 @@ using Interfaces;
 using DAO;
 using DTO;
 namespace Model;
-public class Purchase : IValidateDataObject
+public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purchase>
 {
     //Atributos
     private DateTime data_purchase;
@@ -17,11 +17,16 @@ public class Purchase : IValidateDataObject
     private Store store; //Dependência
     public List<PurchaseDTO>purchaseDTO = new List<PurchaseDTO>();
 
+    //Construtor
+    public Purchase (Client client)
+    {
+        this.client=client;
+    }
     //Métodos
     public static Purchase convertDTOToModel(PurchaseDTO obj)
     {
-        var purchase=new Purchase();
-        purchase.payment_type=obj.payment_type;
+        var purchase=new Purchase(Client.convertDTOToModel(obj.client));
+        purchase.payment_type = obj.payment_type;
         purchase.data_purchase=obj.data_purchase;
         purchase.purchase_values=obj.purchase_values;
         purchase.number_confirmation=obj.number_confirmation;
@@ -53,19 +58,27 @@ public class Purchase : IValidateDataObject
 
         using(var context = new DaoContext())
         {
+            var clientDAO = context.Client.FirstOrDefault(c => c.id == 1);
+            var storeDAO = context.Store.FirstOrDefault(s => s.id == 1);
+            var productsDAO = context.Product.Where(p => p.id == 1).Single();
+
             var purchase = new DAO.Purchase{
                 data_purchase = this.data_purchase,
                 purchase_values= this.purchase_values,
                 purchase_status = this.purchase_status,
                 payment_type = this.payment_type,
                 number_confirmation = this.number_confirmation,
-                number_nf = this.number_nf
+                number_nf = this.number_nf,
+                client = clientDAO,
+                store = storeDAO,
+                products = productsDAO
             };
 
             context.Purchase.Add(purchase);
-
+            context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Entry(purchase.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
-
             id = purchase.id;
 
         }
