@@ -23,7 +23,7 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
         this.country=country;
         this.postal_code=postal_code;
     }
-
+ 
     //Métodos
 
     public static Address convertDTOToModel(AddressDTO obj)

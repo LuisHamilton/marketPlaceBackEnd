@@ -51,7 +51,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         var id = 0;
         using(var context = new DaoContext())
         {
-            var address = new DAO.Address
+            var addressDAO = new DAO.Address
             {
                 street = this.address.getStreet(),
                 city = this.address.getCity(),
@@ -59,7 +59,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 country = this.address.getCountry(),
                 postal_code = this.address.getPostalCode()
             };
-            var client = new DAO.Client
+            var clientDAO = new DAO.Client
             {
                 name = this.name,
                 date_of_birth = this.date_of_birth,
@@ -68,11 +68,11 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 phone = this.phone,
                 passwd = this.passwd,
                 login = this.login,
-                address = address
+                address = addressDAO
             };
-            context.Client.Add(client);
+            context.Client.Add(clientDAO);
             context.SaveChanges();
-            id = client.id;
+            id = clientDAO.id;
         }
         return id;
     }

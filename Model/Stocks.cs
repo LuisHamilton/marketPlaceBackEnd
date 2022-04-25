@@ -13,7 +13,8 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
     public List<StocksDTO>stocksDTO = new List<StocksDTO>();
 
     //Construtor
-    public Stocks (Store store, Product product)
+    public Stocks(){}
+    private Stocks (Store store, Product product)
     {
         this.store = store;
         this.product = product;
@@ -39,19 +40,23 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
     {
 
     }
-    public int save()
+    public int save(int storeID, int productID, int quantity, double unit_price)
     {
         var id = 0;
 
         using(var context = new DaoContext())
         {
-            var stocks = new DAO.Stocks{
-                quantity = this.quantity,
-                unit_price= this.unit_price,
+            var storeDAO = context.Store.FirstOrDefault(s => s.id == storeID);
+            var productDAO = context.Product.FirstOrDefault(p => p.id == productID);
+            var stocksDAO = new DAO.Stocks{
+                quantity = quantity,
+                unit_price= unit_price,
+                product = productDAO,
+                store = storeDAO
             };
-            context.Stocks.Add(stocks);
+            context.Stocks.Add(stocksDAO);
             context.SaveChanges();
-            id = stocks.id;
+            id = stocksDAO.id;
         }
          return id;
     }

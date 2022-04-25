@@ -79,7 +79,7 @@
 
 //             Client testClient = Client.getInstance(adr);
 
-//             WishList wishList = new WishList(testClient);
+//             WishList wishList = new WishList();
 
 //             Product product1 = new Product();
 //             product1.setName("produto teste1");
@@ -94,7 +94,7 @@
 //             wishList.addProductToWishList(product2);
 //             wishList.addProductToWishList(product3);
 
-//             Assert.AreEqual(wishList.getClient(), testClient);
+//             // Assert.AreEqual(wishList.getClient(), testClient);
 //             Assert.That(wishList.getProducts().Count, Is.EqualTo(3));
 
 //         }
@@ -102,7 +102,11 @@
 //         [Test]
 //         public void PurchaseTestCreate()
 //         {
-//             Purchase testPurchase = new Purchase();
+//             Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
+
+//             Client testClient = Client.getInstance(adr);
+
+//             Purchase testPurchase = new Purchase(testClient);
 
 //             DateTime date = new DateTime();
 
@@ -125,13 +129,13 @@
 //             testPurchase.setNumberConfirmation("0123456");
 //             testPurchase.setNumberNf("987654321");
 //             testPurchase.setPaymentType(Enums.PaymentEnum.initial);
-//             testPurchase.setPurchaseStatus(Enums.PurchaseStatusEnum.awaitingPayment);
+//             testPurchase.setPurchaseStatus(Enums.PurchaseStatusEnum.awaiting_payment);
 //             testPurchase.setProducts(products);
 
 //             Assert.That(testPurchase.getNumberConfirmation, Is.EqualTo("0123456"));
 //             Assert.That(testPurchase.getNumberNf, Is.EqualTo("987654321"));
 //             Assert.That(testPurchase.getPaymentType(), Is.EqualTo((int)Enums.PaymentEnum.initial));
-//             Assert.That(testPurchase.getPurchaseStatus(), Is.EqualTo((int)Enums.PurchaseStatusEnum.awaitingPayment));
+//             Assert.That(testPurchase.getPurchaseStatus(), Is.EqualTo((int)Enums.PurchaseStatusEnum.awaiting_payment));
 //             Assert.That(testPurchase.getProducts().Count, Is.EqualTo(3));
 //         }
 
@@ -148,19 +152,15 @@
 
 //             product.setName("produto Teste 1");
 
-//             product.setUnitPrice(25.25);
-
 //             product.setBarCode("1234567878998745613");
 
 //             Assert.That(product.getName(), Is.EqualTo("produto Teste 1"));
 
 //             Assert.That(product.getBarCode(), Is.EqualTo("1234567878998745613"));
 
-//             Assert.That(product.getUnitprice(), Is.EqualTo(25.25));
-
 //         }
 
-//         [Test]
+//         //[Test]
 //         public void StoreCreateTest()
 //         {
 //             Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 

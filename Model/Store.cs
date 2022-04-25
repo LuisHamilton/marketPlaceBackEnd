@@ -18,9 +18,15 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
         this.owner = owner;
     }
     //Métodos
+
+    private Store(){
+
+    }
     public static Store convertDTOToModel(StoreDTO obj)
     {
-        var store = new Store(Owner.convertDTOToModel(obj.owner));
+        //Owner.convertDTOToModel(obj.owner)
+        var store = new Store();
+        
         store.setName(obj.name);
         store.setCNPJ(obj.CNPJ);
         foreach(var element in obj.purchases)
@@ -42,17 +48,17 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
         {
             var ownerDAO = context.Owner.Where(c => c.id == owner).Single();
 
-            var store = new DAO.Store{
+            var storeDAO = new DAO.Store{
                 name = this.name,
                 CNPJ= this.CNPJ,
                 owner = ownerDAO
             };
 
-            context.Store.Add(store);
-            context.Entry(store.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Store.Add(storeDAO);
+            context.Entry(storeDAO.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
 
-            id = store.id;
+            id = storeDAO.id;
 
         }
          return id;
@@ -87,8 +93,6 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
     {
         if(this.getName()==null){return false;}
         if(this.getCNPJ() == null) { return false; }
-        if(this.getOwner()==null){return false;}
-        if(this.getPurchases()==null){return false;}
 
         return true;
     }  

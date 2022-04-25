@@ -12,9 +12,14 @@ public class Person
     protected Address address; //Dependência
 
     //Construtor
-    public Person(Address address)
+    protected Person(Address address)
     {
         this.address = address;
+    }
+
+    public Person()
+    {
+
     }
 
     //GETs e SETs

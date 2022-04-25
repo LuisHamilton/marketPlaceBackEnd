@@ -12,6 +12,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     //Método para pegar a instância
     private static Owner instance;
     private Owner(Address address):base(address){}
+    public Owner(){}
     public static Owner getInstance(Address address)
     {
         if (instance == null)
@@ -35,7 +36,6 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     public static Owner convertDTOToModel(OwnerDTO obj)
     {
         var owner = new Owner(Address.convertDTOToModel(obj.address));
-
         owner.setName(obj.name);
         owner.setDateOfBirth(obj.date_of_birth);
         owner.setDocument(obj.document);
@@ -51,7 +51,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         var id = 0;
         using(var context = new DaoContext())
         {
-            var address = new DAO.Address
+            var addressDAO = new DAO.Address
             {
                 street = this.address.getStreet(),
                 city = this.address.getCity(),
@@ -59,7 +59,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
                 country = this.address.getCountry(),
                 postal_code = this.address.getPostalCode()
             };
-            var owner = new DAO.Owner
+            var ownerDAO = new DAO.Owner
             {
                 name = this.name,
                 date_of_birth = this.date_of_birth,
@@ -67,11 +67,12 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
                 email = this.email,
                 phone = this.phone,
                 passwd = this.passwd,
-                login = this.login
+                login = this.login,
+                address = addressDAO
             };
-            context.Owner.Add(owner);
+            context.Owner.Add(ownerDAO);
             context.SaveChanges();
-            id = owner.id;
+            id = ownerDAO.id;
         }
         return id;
     }

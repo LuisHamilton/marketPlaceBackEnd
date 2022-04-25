@@ -32,13 +32,13 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
         using(var context = new DaoContext())
         {
-            var product = new DAO.Product{
+            var productDAO = new DAO.Product{
                 name = this.name,
                 bar_code = this.bar_code
             };
-            context.Product.Add(product);
+            context.Product.Add(productDAO);
             context.SaveChanges();
-            id = product.id;
+            id = productDAO.id;
         }
         return id;
     }
