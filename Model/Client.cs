@@ -67,7 +67,8 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 email = this.email,
                 phone = this.phone,
                 passwd = this.passwd,
-                login = this.login
+                login = this.login,
+                address = address
             };
             context.Client.Add(client);
             context.SaveChanges();
