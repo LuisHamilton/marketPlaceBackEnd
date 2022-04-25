@@ -15,6 +15,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj" />
     <ProjectReference Include="..\DTO\DTO.csproj" />
+    <ProjectReference Include="..\Enums\Enums.csproj" />
   </ItemGroup>
 
 </Project>

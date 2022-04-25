@@ -4,6 +4,7 @@ using System;
 using DTO;
 using System.Linq;
 using DAO;
+using Enums;
 using Model;
 using System.Threading;
 
@@ -668,6 +669,8 @@ namespace testesAutomatizados
             if(purchase.validateObject()){
                 id=purchase.save();
             }
+
+            Assert.That(id, Is.Not.EqualTo(0));
         }
 
         

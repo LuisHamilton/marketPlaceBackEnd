@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -91,7 +95,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -333,6 +341,9 @@
             "projectReferences": {
               "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj": {
                 "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj"
+              },
+              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
               },
               "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
                 "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj"
