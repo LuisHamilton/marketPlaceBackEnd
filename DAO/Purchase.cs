@@ -1,4 +1,5 @@
 namespace DAO;
+using Enums;
 public class Purchase
 {
     //Atributos

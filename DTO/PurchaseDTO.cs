@@ -1,4 +1,5 @@
 namespace DTO;
+using Enums;
 public class PurchaseDTO
 {
     //Atributos
