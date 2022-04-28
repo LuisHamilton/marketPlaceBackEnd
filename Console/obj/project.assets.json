@@ -599,6 +599,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Enums": "1.0.0",
           "Microsoft.EntityFrameworkCore": "6.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
         },
@@ -607,6 +608,16 @@
         },
         "runtime": {
           "bin/placeholder/DAO.dll": {}
+        }
+      },
+      "Enums/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Enums.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Enums.dll": {}
         }
       }
     }
@@ -1777,6 +1788,11 @@
       "type": "project",
       "path": "../DAO/DAO.csproj",
       "msbuildProject": "../DAO/DAO.csproj"
+    },
+    "Enums/1.0.0": {
+      "type": "project",
+      "path": "../Enums/Enums.csproj",
+      "msbuildProject": "../Enums/Enums.csproj"
     }
   },
   "projectFileDependencyGroups": {

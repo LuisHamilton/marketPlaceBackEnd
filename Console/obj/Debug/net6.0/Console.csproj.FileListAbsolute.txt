@@ -114,3 +114,5 @@ C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Console\obj\Debug\
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Console\obj\Debug\net6.0\Console.pdb
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Console\obj\Debug\net6.0\Console.genruntimeconfig.cache
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Console\obj\Debug\net6.0\ref\Console.dll
+C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Console\bin\Debug\net6.0\Enums.dll
+C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Console\bin\Debug\net6.0\Enums.pdb

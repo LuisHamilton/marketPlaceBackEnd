@@ -1,7 +1,7 @@
 ﻿using DAO;
 
- //using var context = new DaoContext();
- //context.Database.EnsureCreated();
+ using var context = new DaoContext();
+ context.Database.EnsureCreated();
 
 // context.Address.Add(new Address
 // {
@@ -12,4 +12,4 @@
 //     postal_code = "81320-280"
 // });
 
-// context.SaveChanges();
+ context.SaveChanges();
