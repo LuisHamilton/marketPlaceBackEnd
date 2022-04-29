@@ -9,9 +9,24 @@ namespace Controller.Controllers;
 [Route("[controller]")]
 public class OwnerController : ControllerBase
 {
-    public void registerOwner(OwnerDTO owner)
+    [HttpPost]
+    [Route("register")]
+    public object registerOwner([FromBody] OwnerDTO owner)
     {
-        
+        var ownerModel = Model.Owner.convertDTOToModel(owner);
+        var id = ownerModel.save();
+        return new
+        {
+            nome = owner.name,
+            dataAniversario = owner.date_of_birth,
+            documento = owner.document,
+            email = owner.email,
+            telefone = owner.address,
+            login = owner.login,
+            senha = owner.passwd,
+            endereco = owner.address,
+            id = id
+        };
     }
     public void getInformations()
     {

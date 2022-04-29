@@ -11,7 +11,7 @@ public class ClientController : ControllerBase
 {
     [HttpPost]
     [Route("register")]
-    public object registerClient(ClientDTO client)
+    public object registerClient([FromBody] ClientDTO client)
     {
         var clientModel = Model.Client.convertDTOToModel(client);
         var id = clientModel.save();
