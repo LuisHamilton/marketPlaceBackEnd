@@ -13,9 +13,18 @@ public class ProductController : ControllerBase
     {
         
     }
-    public void createProduct(ProductDTO product)
+    [HttpPost]
+    [Route("create")]
+    public object createProduct(ProductDTO product)
     {
-        
+        var productModel = Model.Product.convertDTOToModel(product);
+        var id = productModel.save();
+        return new
+        {
+            nome = product.name,
+            codigoDeBarras=product.bar_code,
+            id = id
+        };   
     }
     public void deleteProduct(ProductDTO product)
     {

@@ -22,8 +22,25 @@ public class PurchaseController : ControllerBase
     {
         
     }
-    public void makePurchase(PurchaseDTO purchase)
+    [HttpPost]
+    [Route("make")]
+    public object makePurchase(PurchaseDTO purchase)
     {
+        var purchaseModel = Model.Purchase.convertDTOToModel(purchase);
+        var id = purchaseModel.save();
+        return new
+        {
+            data = purchase.data_purchase,
+            tipopagamento=purchase.bar_code,
+            status=purchase.purchase_status,
+            valor=purchase.purchase_values,
+            numeroConfirmacao=purchase.number_confirmation,
+            numeroNF=purchase.number_nf,
+            cliente=purchase.client,
+            loja=purchase.store,
+            produtos=purchase.products,
+            id = id
+        };   
         
     }
 }

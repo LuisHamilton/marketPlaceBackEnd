@@ -53,3 +53,7 @@ C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Model\obj\Debug\ne
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Model\obj\Debug\net6.0\refint\Model.dll
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Model\obj\Debug\net6.0\Model.pdb
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\Model\obj\Debug\net6.0\ref\Model.dll
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Model\bin\Debug\net6.0\DAO.dll
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Model\bin\Debug\net6.0\DTO.dll
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Model\bin\Debug\net6.0\DAO.pdb
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Model\bin\Debug\net6.0\DTO.pdb

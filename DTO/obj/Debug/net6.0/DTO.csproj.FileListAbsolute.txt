@@ -25,3 +25,6 @@ C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\DTO\obj\Debug\net6
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\DTO\bin\Debug\net6.0\Enums.dll
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\DTO\bin\Debug\net6.0\Enums.pdb
 C:\Users\disrct\Desktop\ProjetosCSharp\projetosCSharpAvancado\DTO\obj\Debug\net6.0\DTO.csproj.CopyComplete
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\DTO\bin\Debug\net6.0\Enums.dll
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\DTO\bin\Debug\net6.0\Enums.pdb
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\DTO\obj\Debug\net6.0\DTO.csproj.CopyComplete
