@@ -81,6 +81,14 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     {
         return new OwnerDTO();
     }
+    public static int find(String doc)
+    {
+        using(var context = new DaoContext())
+        {
+            var ownerInstance = context.Owner.Where(c => c.document == doc).Single();
+            return ownerInstance.id;
+        }
+    }
     public List<OwnerDTO> getAll()
     {
         return this.ownerDTO;
@@ -96,7 +104,10 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         ownerDTO.phone = this.phone;
         ownerDTO.login = this.login;
         ownerDTO.passwd = this.passwd;
-        ownerDTO.address = this.address.convertModelToDTO();
+        if(ownerDTO.address != null){
+            ownerDTO.address = this.address.convertModelToDTO();
+        }
+        
         return ownerDTO;
     }
 }

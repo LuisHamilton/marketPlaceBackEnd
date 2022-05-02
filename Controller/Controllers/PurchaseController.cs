@@ -31,7 +31,7 @@ public class PurchaseController : ControllerBase
         return new
         {
             data = purchase.data_purchase,
-            tipopagamento=purchase.bar_code,
+            tipopagamento=purchase.payment_type,
             status=purchase.purchase_status,
             valor=purchase.purchase_values,
             numeroConfirmacao=purchase.number_confirmation,

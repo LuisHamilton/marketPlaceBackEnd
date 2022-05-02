@@ -41,7 +41,7 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
 
     }
     public int save(int owner)
-    {
+    {       
         var id = 0;
 
         using(var context = new DaoContext())
