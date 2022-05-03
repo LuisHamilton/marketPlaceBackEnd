@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -81,11 +82,19 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     {
         return new OwnerDTO();
     }
-    public static int find(String doc)
+    public static object findByDocument(String doc)
     {
         using(var context = new DaoContext())
         {
-            var ownerInstance = context.Owner.Where(c => c.document == doc).Single();
+            var ownerInstance = context.Owner.Include(c=>c.address).Where(c => c.document == doc).Single();
+            return ownerInstance;
+        }
+    }
+    public static int findToStore(String doc)
+    {
+        using(var context = new DaoContext())
+        {
+            var ownerInstance = context.Owner.Include(c=>c.address).Where(c => c.document == doc).Single();
             return ownerInstance.id;
         }
     }
@@ -104,9 +113,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         ownerDTO.phone = this.phone;
         ownerDTO.login = this.login;
         ownerDTO.passwd = this.passwd;
-        if(ownerDTO.address != null){
-            ownerDTO.address = this.address.convertModelToDTO();
-        }
+        ownerDTO.address = this.address.convertModelToDTO();
         
         return ownerDTO;
     }

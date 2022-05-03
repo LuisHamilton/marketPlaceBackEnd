@@ -15,7 +15,7 @@ public class ProductController : ControllerBase
     }
     [HttpPost]
     [Route("create")]
-    public object createProduct(ProductDTO product)
+    public object createProduct([FromBody]ProductDTO product)
     {
         var productModel = Model.Product.convertDTOToModel(product);
         var id = productModel.save();

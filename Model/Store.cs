@@ -1,4 +1,4 @@
-using Enums;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -69,8 +69,15 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
     }
     public StoreDTO findById(int id)
     {
-
         return new StoreDTO();
+    }
+    public static object findByCNPJ(String cnpj)
+    {
+        using(var context = new DaoContext())
+        {
+            var storeInstance = context.Store.Include(s => s.owner).Include(s => s.owner.address).Where(s => s.CNPJ == cnpj).Single();
+            return storeInstance;
+        }
     }
     public List<StoreDTO> getAll()
     {        

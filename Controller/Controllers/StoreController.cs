@@ -15,11 +15,11 @@ public class StoreController : ControllerBase
     }
     [HttpPost]
     [Route("register")]
-    public object registerStore(StoreDTO store)
+    public object registerStore([FromBody]StoreDTO store)
     {
         var storeModel = Model.Store.convertDTOToModel(store);
-        var ownerInstance = Model.Owner.find(store.owner.document);
-        var id = storeModel.save(ownerInstance);
+        var ownerID = Model.Owner.findToStore(store.owner.document);
+        var id = storeModel.save(ownerID);
         return new
         {
             nome = store.name,
@@ -29,8 +29,11 @@ public class StoreController : ControllerBase
             id = id
         };
     }
-    public void getStoreInformation(StoreDTO store)
+    [HttpGet]
+    [Route("get/{CNPJ}")]
+    public object getStoreInformation(String CNPJ)
     {
-        
+        var storeInstance = Model.Store.findByCNPJ(CNPJ);
+        return storeInstance;
     }
 }

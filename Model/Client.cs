@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -80,6 +81,14 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     public ClientDTO findById(int id)
     {
         return new ClientDTO();
+    }
+    public static object findByDocument(String doc)
+    {
+        using(var context = new DaoContext())
+        {
+            var clientInstance = context.Client.Include(c=>c.address).Where(c => c.document == doc).Single();
+            return clientInstance;
+        }
     }
     public List<ClientDTO> getAll()
     {

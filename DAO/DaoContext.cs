@@ -40,6 +40,7 @@ public class DaoContext : DbContext
             entity.Property(e=>e.email).IsRequired();
             entity.Property(e=>e.phone).IsRequired();
             entity.Property(e=>e.login).IsRequired();
+            entity.Property(e=>e.passwd).IsRequired();
             entity.HasOne(d=>d.address);
         });
         modelBuilder.Entity<Owner>(entity =>
@@ -51,6 +52,7 @@ public class DaoContext : DbContext
             entity.Property(e=>e.email).IsRequired();
             entity.Property(e=>e.phone).IsRequired();
             entity.Property(e=>e.login).IsRequired();
+            entity.Property(e=>e.passwd).IsRequired();
             entity.HasOne(d=>d.address);
         });
 

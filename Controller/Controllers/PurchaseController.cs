@@ -10,7 +10,7 @@ namespace Controller.Controllers;
 public class PurchaseController : ControllerBase
 {
     [HttpGet]
-    [Route("getClient/{clientID}")]
+    [Route("get")]
     public object getClientPurchase(int clientID)
     {
         return new
@@ -24,7 +24,7 @@ public class PurchaseController : ControllerBase
     }
     [HttpPost]
     [Route("make")]
-    public object makePurchase(PurchaseDTO purchase)
+    public object makePurchase([FromBody]PurchaseDTO purchase)
     {
         var purchaseModel = Model.Purchase.convertDTOToModel(purchase);
         var id = purchaseModel.save();

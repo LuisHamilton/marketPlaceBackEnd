@@ -28,8 +28,11 @@ public class ClientController : ControllerBase
             id = id
         };
     }
-    public void getInformations()
+    [HttpGet]
+    [Route("get/{document}")]
+    public object getInformations(String document)
     {
-        
+        var clientInfo = Model.Client.findByDocument(document);
+        return clientInfo;
     }
 }

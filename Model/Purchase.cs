@@ -28,9 +28,8 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     {
         var purchase=new Purchase(Client.convertDTOToModel(obj.client));
         purchase.payment_type = obj.payment_type;
-        if(obj.data_purchase != default){
-             purchase.data_purchase=obj.data_purchase;
-        }       
+        purchase.purchase_status = obj.purchase_status;
+        purchase.data_purchase=obj.data_purchase;
         purchase.purchase_values=obj.purchase_values;
         purchase.number_confirmation=obj.number_confirmation;
         purchase.number_nf=obj.number_nf;

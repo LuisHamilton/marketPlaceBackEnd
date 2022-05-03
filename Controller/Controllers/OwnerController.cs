@@ -28,9 +28,11 @@ public class OwnerController : ControllerBase
             id = id
         };
     }
-    public void getInformations()
+    [HttpGet]
+    [Route("get/{document}")]
+    public object getInformations(String document)
     {
-        
+        var ownerInfo = Model.Owner.findByDocument(document);
+        return ownerInfo;
     }
-
 }
