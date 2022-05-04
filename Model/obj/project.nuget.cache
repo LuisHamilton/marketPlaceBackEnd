@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WrETAw1Ej91qAlnKHMxSKta1JRgs5PgcdjjY6aiV29hgUn4HNH2aENpp7ShLZaN9o04QHg55ZQ/9wUneeX7qxQ==",
+  "dgSpecHash": "UR2/cnfqp8VNBDSuDhOLS9ex9P4OOMR4XR8XgwATpV0MPtDJA1GlRg1cLPErqepwj6RLYu57eW3HUzM1wXAzuQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Model\\Model.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

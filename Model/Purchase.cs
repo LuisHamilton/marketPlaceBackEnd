@@ -52,23 +52,24 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     public int save()
     {
         var id = 0;
-
         using(var context = new DaoContext())
         {
-            var clientDAO = context.Client.FirstOrDefault(c => c.id == 1);
-            var storeDAO = context.Store.FirstOrDefault(s => s.id == 1);
-            var productsDAO = context.Product.Where(p => p.id == 1).Single();
+            if (this.products.Count() <= 0) { return -1; }
+
+            var clientDAO = context.Client.Where(c => c.document == this.client.getDocument()).Single();
+            var storeDAO = context.Store.Where(c => c.CNPJ == this.store.getCNPJ()).Single();
+            var productsDAO = context.Product.Where(c => c.bar_code == this.products.First().getBarCode()).Single();
 
             var purchase = new DAO.Purchase{
+                client = clientDAO,
+                store = storeDAO,
+                products = productsDAO,
                 data_purchase = this.data_purchase,
                 purchase_values= this.purchase_values,
                 purchase_status = this.purchase_status,
                 payment_type = this.payment_type,
                 number_confirmation = this.number_confirmation,
-                number_nf = this.number_nf,
-                client = clientDAO,
-                store = storeDAO,
-                products = productsDAO
+                number_nf = this.number_nf
             };
 
             context.Purchase.Add(purchase);
@@ -76,6 +77,8 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
             context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.Entry(purchase.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
+            this.products.Remove(products.First());
+            this.save();
             id = purchase.id;
 
         }
