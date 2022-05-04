@@ -10,17 +10,18 @@ namespace Controller.Controllers;
 public class PurchaseController : ControllerBase
 {
     [HttpGet]
-    [Route("get")]
-    public object getClientPurchase(int clientID)
+    [Route("get/client/{document}")]
+    public object getClientPurchase(String document)
     {
-        return new
-        {
-            id = clientID
-        };
+        var clientPurchase = Model.Purchase.findByDocument(document);
+        return clientPurchase;
     }
-    public void getStorePurchase(int storeID)
+    [HttpGet]
+    [Route("get/store/{CNPJ}")]
+    public object getStorePurchase(String CNPJ)
     {
-        
+        var storePurchase = Model.Purchase.findByCNPJ(CNPJ);
+        return storePurchase;
     }
     [HttpPost]
     [Route("make")]

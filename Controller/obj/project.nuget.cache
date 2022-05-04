@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KKfu47zvC6uz7qt7QtFdEpVWMoOPlq+6Pu02B7lRwH8Gc6P7TtBXNTfeJyJnwTzZzZyvd+MxHpUidSHc3bwl9w==",
+  "dgSpecHash": "2Y3JzfEAoEolPxzC2zUsZN7HqgOsudeBnSpQkiUtfb3BjVy2CN8g2AyzsEDdlrF5Xe50+M3AsP7gvJed5dUbSA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Controller\\Controller.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetosCSharpAvancado\\Controller\\Controller.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.4\\microsoft.aspnetcore.jsonpatch.6.0.4.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\6.0.4\\microsoft.aspnetcore.mvc.newtonsoftjson.6.0.4.nupkg.sha512",

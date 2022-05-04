@@ -1,4 +1,4 @@
-using Enums;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -121,6 +121,29 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     {
         this.purchase_status = PurchaseStatusEnum;
     }
+    public static List<object> findByDocument(String doc)
+    {
+        using(var context = new DaoContext())
+        {
+            var purchaseInstance = context.Purchase.Include(c=>c.client).Include(c=> c.client.address).Include(c=>c.products).Include(c=>c.store).Include(c=>c.store.owner).Include(c=>c.store.owner.address).Where(c => c.client.document == doc);
+            
+            List<object> purchases = new List<object>();
+
+            foreach(object purchase in purchaseInstance){
+                purchases.Add(purchase);
+            }
+            return purchases;
+        }
+    }
+    public static object findByCNPJ(String cnpj)
+    {
+        using(var context = new DaoContext())
+        {
+            var purchaseInstance = context.Purchase.Include(c=>c.store).Include(c=>c.store.owner).Include(c=>c.store.owner.address).Include(c=>c.client).Include(c=> c.client.address).Include(c=>c.products).Where(c => c.store.CNPJ == cnpj).Single();
+            return purchaseInstance;
+        }
+    }
+
 
     //GETs e SETs
     public Store getStore(){return this.store;}
