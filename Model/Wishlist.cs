@@ -23,9 +23,9 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
     {
         var wishlist = new WishList(Client.convertDTOToModel(obj.client));
 
-        foreach (var element in obj.products)
+        foreach (var prod in obj.products)
         {
-            wishlist.addProductToWishList(Product.convertDTOToModel(element));
+            wishlist.addProductToWishList(Product.convertDTOToModel(prod));
         }
         return wishlist;
     }

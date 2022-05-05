@@ -47,6 +47,13 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         return new ProductDTO();
     }
+    public int findId(){
+        using(var context = new DaoContext())
+        {
+            var productDAO = context.Product.Where(c => c.bar_code == this.bar_code).Single();
+            return productDAO.id;
+        }
+    }
     public List<ProductDTO> getAll()
     {
         return this.productDTO;
