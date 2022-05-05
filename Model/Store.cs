@@ -29,9 +29,9 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
         
         store.setName(obj.name);
         store.setCNPJ(obj.CNPJ);
-        foreach(var element in obj.purchases)
+        foreach(var purch in obj.purchases)
         {
-            store.addNewPurchase(Purchase.convertDTOToModel(element));
+            store.addNewPurchase(Purchase.convertDTOToModel(purch));
         }
         return store;
     }
@@ -90,9 +90,9 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
         storeDTO.name = this.name;
         storeDTO.CNPJ = this.CNPJ;
         storeDTO.owner = this.owner.convertModelToDTO();
-        foreach(var purchase in purchases)
+        foreach(var purch in purchases)
         {
-            storeDTO.purchases.Add(purchase.convertModelToDTO());
+            storeDTO.purchases.Add(purch.convertModelToDTO());
         }
         return storeDTO;
     }

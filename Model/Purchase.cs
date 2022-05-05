@@ -27,12 +27,20 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     public static Purchase convertDTOToModel(PurchaseDTO obj)
     {
         var purchase=new Purchase(Client.convertDTOToModel(obj.client));
+
         purchase.payment_type = obj.payment_type;
         purchase.purchase_status = obj.purchase_status;
         purchase.data_purchase=obj.data_purchase;
         purchase.purchase_values=obj.purchase_values;
         purchase.number_confirmation=obj.number_confirmation;
         purchase.number_nf=obj.number_nf;
+        List<Product> produtos = new List<Product>();
+        foreach (var prod in obj.products){
+            produtos.Add(Product.convertDTOToModel(prod));
+        }
+        purchase.products = produtos;
+        purchase.store = Store.convertDTOToModel(obj.store);
+
         return purchase;
     }
 
@@ -54,7 +62,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
         var id = 0;
         using(var context = new DaoContext())
         {
-            if (this.products.Count() <= 0) { return -1; }
+            if (this.products.Count() == 0) { return -1; }
 
             var clientDAO = context.Client.Where(c => c.document == this.client.getDocument()).Single();
             var storeDAO = context.Store.Where(c => c.CNPJ == this.store.getCNPJ()).Single();
@@ -77,8 +85,10 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
             context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.Entry(purchase.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
-            this.products.Remove(products.First());
+
+            this.products.RemoveAt(0);
             this.save();
+
             id = purchase.id;
 
         }
