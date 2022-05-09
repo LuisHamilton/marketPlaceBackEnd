@@ -18,8 +18,8 @@ public class WishListController : ControllerBase
         foreach(var prods in wishlistModel.getProducts())
         {
             var client = wishlistModel.getClient();
-            var prod = prods.findId();
-            var id = wishlistModel.save(client.getDocument(), prod);
+            var productID = prods.findId();
+            var id = wishlistModel.save(client.getDocument(), productID);
         }
 
         return new

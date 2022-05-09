@@ -13,15 +13,13 @@ public class PurchaseController : ControllerBase
     [Route("get/client/{document}")]
     public object getClientPurchase(String document)
     {
-        var clientPurchase = Model.Purchase.findByDocument(document);
-        return clientPurchase;
+        return Model.Purchase.findByDocument(document);
     }
     [HttpGet]
     [Route("get/store/{CNPJ}")]
     public object getStorePurchase(String CNPJ)
     {
-        var storePurchase = Model.Purchase.findByCNPJ(CNPJ);
-        return storePurchase;
+        return Model.Purchase.findByCNPJ(CNPJ);
     }
     [HttpPost]
     [Route("make")]

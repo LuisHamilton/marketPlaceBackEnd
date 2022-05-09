@@ -32,7 +32,6 @@ public class OwnerController : ControllerBase
     [Route("get/{document}")]
     public object getInformations(String document)
     {
-        var ownerInfo = Model.Owner.findByDocument(document);
-        return ownerInfo;
+        return Model.Owner.findByDocument(document);
     }
 }

@@ -9,9 +9,11 @@ namespace Controller.Controllers;
 [Route("[controller]")]
 public class StoreController : ControllerBase
 {
-    public void getAllStore()
+    [HttpGet]
+    [Route("all")]
+    public List<object> getAll()
     {
-        
+        return Model.Store.getAllStores();
     }
     [HttpPost]
     [Route("register")]
@@ -33,7 +35,6 @@ public class StoreController : ControllerBase
     [Route("get/{CNPJ}")]
     public object getStoreInformation(String CNPJ)
     {
-        var storeInstance = Model.Store.findByCNPJ(CNPJ);
-        return storeInstance;
+        return Model.Store.findByCNPJ(CNPJ);
     }
 }

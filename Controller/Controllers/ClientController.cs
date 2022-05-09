@@ -32,7 +32,6 @@ public class ClientController : ControllerBase
     [Route("get/{document}")]
     public object getInformations(String document)
     {
-        var clientInfo = Model.Client.findByDocument(document);
-        return clientInfo;
+        return Model.Client.findByDocument(document);
     }
 }

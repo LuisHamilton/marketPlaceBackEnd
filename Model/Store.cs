@@ -79,9 +79,30 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
             return storeInstance;
         }
     }
+    public int findId(){
+        using(var context = new DaoContext())
+        {
+            var storeDAO = context.Store.Where(c => c.CNPJ == this.CNPJ).Single();
+            return storeDAO.id;
+        }
+    }
     public List<StoreDTO> getAll()
     {        
         return this.storeDTO;      
+    }
+    public static List<object> getAllStores()
+    {
+        List<object> stores = new List<object>();
+
+        using(var context = new DaoContext())
+        {
+            var lojas = context.Store.Where(p => true);
+            foreach(var loja in lojas)
+            {
+                stores.Add(loja);
+            }
+            return stores;
+        }
     }
     public StoreDTO convertModelToDTO()
     {
