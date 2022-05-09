@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("Product")]
 public class ProductController : ControllerBase
 {
     public void allProducts()
@@ -26,11 +26,15 @@ public class ProductController : ControllerBase
             id = id
         };   
     }
+    [HttpDelete]
+    [Route("delete")]
     public void deleteProduct(ProductDTO product)
     {
         
     }
-    public void updateProduct(ProductDTO product)
+    [HttpPut]
+    [Route("update")]
+    public void updateProduct([FromBody] ProductDTO product)
     {
         
     }

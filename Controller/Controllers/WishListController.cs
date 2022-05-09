@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("WishList")]
 public class WishListController : ControllerBase
 {
     [HttpPost]
@@ -28,6 +28,8 @@ public class WishListController : ControllerBase
             produtos = wishlist.products
         };
     }
+    [HttpDelete]
+    [Route("delete")]
     public void removeProductToWishList(object request)
     {
         

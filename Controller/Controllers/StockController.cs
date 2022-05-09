@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("Stock")]
 public class StockController : ControllerBase
 {
     [HttpPost]
@@ -32,7 +32,9 @@ public class StockController : ControllerBase
             id = id
         };
     }
-    public void updateStock(object request)
+    [HttpPut]
+    [Route("update")]
+    public void updateStock([FromBody] object request)
     {
         
     }

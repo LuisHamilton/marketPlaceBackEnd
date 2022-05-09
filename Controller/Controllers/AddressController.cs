@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("Address")]
 public class AddressController : ControllerBase
 {
     [HttpPost]
@@ -25,11 +25,15 @@ public class AddressController : ControllerBase
             id = id
         };
     }
-    public void removeAddress(AddressDTO address)
+    [HttpDelete]
+    [Route("delete")]
+    public void removeAddress([FromBody] AddressDTO address)
     {
         
     }
-    public void updateAddress(AddressDTO address)
+    [HttpPut]
+    [Route("update")]
+    public void updateAddress([FromBody] AddressDTO address)
     {
         
     }
