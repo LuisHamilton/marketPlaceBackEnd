@@ -1788,11 +1788,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj",
       "projectName": "DAO",
-      "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -1809,8 +1809,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
-              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+            "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj"
             }
           }
         }

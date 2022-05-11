@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Controller\\Controller.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Controller\\Controller.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Controller\\Controller.csproj": {
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Controller\\Controller.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Controller\\Controller.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Controller\\Controller.csproj",
         "projectName": "Controller",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Controller\\Controller.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Controller\\Controller.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Controller\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Controller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Model\\Model.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj": {
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj",
         "projectName": "DAO",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -102,8 +102,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj"
               }
             }
           }
@@ -146,14 +146,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj": {
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -170,8 +170,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj"
               }
             }
           }
@@ -204,14 +204,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -258,14 +258,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj": {
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Interfaces\\Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Interfaces\\Interfaces.csproj",
         "projectName": "Interfaces",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Interfaces\\Interfaces.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Interfaces\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -312,14 +312,14 @@
         }
       }
     },
-    "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj": {
+    "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Model\\Model.csproj",
         "projectName": "Model",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\Model.csproj",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Model\\Model.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Model\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Model\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -336,17 +336,17 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DAO\\DAO.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DAO\\DAO.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\DTO\\DTO.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\DTO\\DTO.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Enums\\Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Enums\\Enums.csproj"
               },
-              "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj": {
-                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetosCSharp\\projetosCSharpAvancado\\Interfaces\\Interfaces.csproj"
+              "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\projetoCSharp\\projetoscsharpavancado\\Interfaces\\Interfaces.csproj"
               }
             }
           }

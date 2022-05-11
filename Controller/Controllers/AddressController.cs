@@ -32,9 +32,10 @@ public class AddressController : ControllerBase
         
     }
     [HttpPut]
-    [Route("update")]
-    public void updateAddress([FromBody] AddressDTO address)
+    [Route("update/{document}")]
+    public void updateAddress(AddressDTO address,String document)
     {
-        
+        var addressModel = Model.Address.convertDTOToModel(address);
+        addressModel.updateAddress(document);
     }
 }

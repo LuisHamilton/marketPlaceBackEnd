@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -51,6 +52,28 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
         return id;
     }
     public void update(AddressDTO obj){}
+    public void updateAddress(String doc)
+    {
+        using (var context =  new DaoContext()){
+            try{
+                var entity = context.Client.Include(e=>e.address).Where(e=>e.document == doc).Single();
+                entity.address.street = this.street;
+                entity.address.city=this.city;
+                entity.address.state=this.state;
+                entity.address.country=this.country;
+                entity.address.postal_code=this.postal_code;  
+            }
+            catch(Exception ex){
+                var entity2 = context.Owner.Include(e=>e.address).Where(e=>e.document == doc).Single();
+                entity2.address.street = this.street;
+                entity2.address.city=this.city;
+                entity2.address.state=this.state;
+                entity2.address.country=this.country;
+                entity2.address.postal_code=this.postal_code;
+            }
+            context.SaveChanges();
+        }
+    }
     public AddressDTO findById(int id)
     {
         return new AddressDTO();

@@ -14,8 +14,10 @@ public class DaoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source = JVLPC0571;" + "Initial Catalog = marketPlace; Integrated Security=True");
-        //optionsBuilder.UseSqlServer("Data Source = JVLPC0581;" + "Initial Catalog = marketPlace; Integrated Security=True");
+        //bancoluis
+        //optionsBuilder.UseSqlServer("Data Source = JVLPC0571;" + "Initial Catalog = marketPlace; Integrated Security=True");
+        //bancojao
+        optionsBuilder.UseSqlServer("Data Source = JVLPC0581;" + "Initial Catalog = marketPlace; Integrated Security=True");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
