@@ -1,4 +1,4 @@
-using Enums;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -64,6 +64,15 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
     {
 
     }
+    public void updateStock(String cnpj,String Bar_Code){
+        using(var context = new DaoContext()){
+            var stock = context.Stocks.Include(s=>s.store).Include(s=>s.product).Where(s=>s.store.CNPJ==cnpj && s.product.bar_code == Bar_Code).Single();
+            stock.quantity=this.quantity;
+            stock.unit_price=this.unit_price;
+            context.SaveChanges();
+        }
+    }
+
     public StocksDTO findById(int id)
     {
 

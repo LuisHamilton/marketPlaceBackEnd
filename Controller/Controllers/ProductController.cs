@@ -33,9 +33,15 @@ public class ProductController : ControllerBase
         
     }
     [HttpPut]
-    [Route("update")]
-    public void updateProduct([FromBody] ProductDTO product)
+    [Route("update/{bar_code}")]
+    public object updateProduct(ProductDTO product,String bar_code)
     {
-        
+        var productModel = Model.Product.convertDTOToModel(product);
+        productModel.updateProduct(bar_code);
+        return new
+        {
+            nome = product.name,
+            codigoDeBarras=product.bar_code
+        };
     }
 }

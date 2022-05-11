@@ -43,6 +43,16 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         return id;
     }
     public void update(ProductDTO obj){}
+    public void updateProduct(String Bar_code){
+        using (var context = new DaoContext()){
+            var product = context.Product.Where(p=>p.bar_code == Bar_code).Single();
+            product.name=this.name;
+            product.bar_code=this.bar_code;
+            context.SaveChanges();
+        }
+        
+
+    }
     public ProductDTO findById(int id)
     {
         return new ProductDTO();

@@ -33,9 +33,17 @@ public class StockController : ControllerBase
         };
     }
     [HttpPut]
-    [Route("update")]
-    public void updateStock([FromBody] object request)
+    [Route("update/{CNPJ}/{bar_code}")]
+    public object updateStock(StocksDTO stock,String CNPJ, String bar_code) 
     {
-        
+        var stockModel = Model.Stocks.convertDTOToModel(stock);
+        stockModel.updateStock(CNPJ,bar_code);
+        return new
+        {
+            quantidade = stock.quantity,
+            preco_unidade = stock.unit_price,
+            loja = stock.store,
+            produto = stock.product,
+        };
     }
 }

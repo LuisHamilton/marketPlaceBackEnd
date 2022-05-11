@@ -33,9 +33,17 @@ public class AddressController : ControllerBase
     }
     [HttpPut]
     [Route("update/{document}")]
-    public void updateAddress(AddressDTO address,String document)
+    public object updateAddress(AddressDTO address,String document)
     {
         var addressModel = Model.Address.convertDTOToModel(address);
         addressModel.updateAddress(document);
+        return new
+        {
+            rua = address.street,
+            estado = address.state,
+            cidade = address.city,
+            pais = address.country,
+            codigoPostal = address.postal_code
+        };
     }
 }
