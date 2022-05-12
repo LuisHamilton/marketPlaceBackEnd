@@ -25,12 +25,9 @@ public class AddressController : ControllerBase
             id = id
         };
     }
-    [HttpDelete]
-    [Route("delete")]
-    public void removeAddress([FromBody] AddressDTO address)
-    {
-        
-    }
+    // [HttpDelete]
+    // [Route("delete")]
+    // public void removeAddress([FromBody] AddressDTO address){ }
     [HttpPut]
     [Route("update/{document}")]
     public object updateAddress(AddressDTO address,String document)

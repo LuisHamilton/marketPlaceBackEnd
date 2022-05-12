@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -19,6 +20,7 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         this.client = client;
     }
 
+    //Métodos
     public static WishList convertDTOToModel(WishListDTO obj)
     {
         var wishlist = new WishList(Client.convertDTOToModel(obj.client));
@@ -55,16 +57,31 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
     {
         return new WishListDTO();
     }
+
+    public static String removeProductFromWishList(String Bar_Code)
+    {
+        using(var context = new DaoContext())
+        {
+            var productDao = context.Product.Where(p=>p.bar_code == Bar_Code).Single();
+            var wishlistDao = context.WishList.Include(w=>w.products).Where(w=>w.products.id == productDao.id);
+            context.WishList.RemoveRange(wishlistDao);
+            context.SaveChanges();
+            return "Product removed from WishList successfuly";
+        }
+    }
+
     public List<WishListDTO> getAll()
     {
         return this.wishlistDTO;
     }
+
     public Boolean validateObject()
     {
         if (this.getProducts() == null) { return false; }
         if (this.getClient() == null) { return false; }
         return true;
     }
+
     public WishListDTO convertModelToDTO()
     {
         var wishlistDTO = new WishListDTO();
@@ -76,7 +93,8 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         }
         return wishlistDTO;
     }
-    //Métodos
+
+    //GETs e SETs
     public List<Product> getProducts(){return products;}
     public void addProductToWishList(Product product){ products.Add(product); }
     public Client getClient(){return client;}

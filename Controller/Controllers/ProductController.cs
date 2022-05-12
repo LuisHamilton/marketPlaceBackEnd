@@ -27,10 +27,10 @@ public class ProductController : ControllerBase
         };   
     }
     [HttpDelete]
-    [Route("delete")]
-    public void deleteProduct(ProductDTO product)
+    [Route("delete/{bar_code}")]
+    public String deleteProduct(String bar_code)
     {
-        
+        return Model.Product.deleteProduct(bar_code);
     }
     [HttpPut]
     [Route("update/{bar_code}")]

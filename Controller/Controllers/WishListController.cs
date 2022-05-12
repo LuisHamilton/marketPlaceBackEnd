@@ -29,9 +29,9 @@ public class WishListController : ControllerBase
         };
     }
     [HttpDelete]
-    [Route("delete")]
-    public void removeProductToWishList(object request)
+    [Route("delete/{bar_code}")]
+    public String removeProductFromWishList(String bar_code)
     {
-        
+        return Model.WishList.removeProductFromWishList(bar_code);
     }
 }

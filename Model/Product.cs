@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -43,6 +44,7 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         return id;
     }
     public void update(ProductDTO obj){}
+
     public void updateProduct(String Bar_code){
         using (var context = new DaoContext()){
             var product = context.Product.Where(p=>p.bar_code == Bar_code).Single();
@@ -57,6 +59,22 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         return new ProductDTO();
     }
+
+    public static String deleteProduct(String Bar_Code)
+    {
+        using(var context = new DaoContext())
+        {
+            var productDao = context.Product.Where(p=>p.bar_code == Bar_Code).Single();
+            var wishlistDao = context.WishList.Include(w=>w.products).Where(w=>w.products.id == productDao.id);
+            var purchaseDao = context.Purchase.Include(p=>p.products).Where(p=>p.products.id == productDao.id);
+            context.WishList.RemoveRange(wishlistDao);
+            context.Purchase.RemoveRange(purchaseDao);
+            context.Product.Remove(productDao);
+            context.SaveChanges();
+            return "Product removed successfuly";
+        }
+    }
+
     public int findId(){
         using(var context = new DaoContext())
         {
