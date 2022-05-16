@@ -10,6 +10,8 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 {
     private String name;
     private String bar_code;
+    private String image;
+    private String description;
     public List<ProductDTO> productDTO = new List<ProductDTO>();
     
     //Métodos
@@ -18,12 +20,16 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         var product = new Product();
         product.setName(obj.name);
         product.setBarCode(obj.bar_code);
+        product.setImage(obj.image);
+        product.setDescription(obj.description);
         return product;
     }
     public Boolean validateObject()
     {
         if(this.getName() == null) { return false; }
         if(this.getBarCode() == null) { return false; }
+        if(this.getImage() == null) { return false; }
+        if(this.getDescription() == null) { return false; }
         return true;
     }
     public void delete(ProductDTO obj){}
@@ -35,7 +41,9 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         {
             var productDAO = new DAO.Product{
                 name = this.name,
-                bar_code = this.bar_code
+                bar_code = this.bar_code,
+                image = this.image,
+                description = this.description
             };
             context.Product.Add(productDAO);
             context.SaveChanges();
@@ -50,6 +58,8 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
             var product = context.Product.Where(p=>p.bar_code == Bar_code).Single();
             product.name=this.name;
             product.bar_code=this.bar_code;
+            product.image=this.image;
+            product.description=this.description;
             context.SaveChanges();
         }
         
@@ -86,19 +96,46 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         return this.productDTO;
     }
+    public static List<object> getAllProducts()
+    {
+        List<object> produtos = new List<object>();
+
+        using (var context = new DaoContext())
+        {
+            var stocks = context.Stocks.Include(s => s.product). ToList();
+            foreach (var stock in stocks)
+            {
+                produtos.Add(new
+                {
+                    id = stock.product.id,
+                    name = stock.product.name,
+                    bar_code = stock.product.bar_code,
+                    image = stock.product.image,
+                    description = stock.product.description,
+                    price = stock.unit_price
+                });
+            }
+        }
+        return produtos;
+    }
     public ProductDTO convertModelToDTO()
     {
         var productDTO = new ProductDTO();
         productDTO.name = this.name;
         productDTO.bar_code = this.bar_code;
+        productDTO.image = this.image;
+        productDTO.description = this.description;
         return productDTO;
     }
 
     //GETs e SETs
-    public String getName(){return name;}
+    public String getName(){return this.name;}
     public void setName(String name){this.name=name;}
-    public String getBarCode(){return bar_code;}
+    public String getBarCode(){return this.bar_code;}
     public void setBarCode(String bar_code){this.bar_code=bar_code;}
-
+    public String getImage(){return this.image;}
+    public void setImage(String image){this.image=image;}
+    public String getDescription(){return this.description;}
+    public void setDescription(String description){this.description=description;}
 
 }

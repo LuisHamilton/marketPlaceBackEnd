@@ -9,9 +9,16 @@ namespace Controller.Controllers;
 [Route("Product")]
 public class ProductController : ControllerBase
 {
-    public void allProducts()
+    [HttpGet]
+    [Route("all")]
+    public IActionResult allProducts()
     {
-        
+        var response = Product.getAllProducts();
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
     }
     [HttpPost]
     [Route("create")]
@@ -23,6 +30,8 @@ public class ProductController : ControllerBase
         {
             nome = product.name,
             codigoDeBarras=product.bar_code,
+            imagem = product.image,
+            descricao = product.description,
             id = id
         };   
     }
