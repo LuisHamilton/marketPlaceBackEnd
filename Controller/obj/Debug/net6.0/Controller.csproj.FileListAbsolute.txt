@@ -144,3 +144,4 @@ C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Controller\obj\Debu
 C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Controller\obj\Debug\net6.0\Controller.csproj.CopyComplete
 C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Controller\obj\Debug\net6.0\Controller.genruntimeconfig.cache
 C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Controller\obj\Debug\net6.0\ref\Controller.dll
+C:\Users\disrct\Desktop\projetoCSharp\projetosCSharpAvancado\Controller\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

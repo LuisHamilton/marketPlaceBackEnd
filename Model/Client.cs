@@ -90,6 +90,30 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             return clientInstance;
         }
     }
+    public static int findId(ClientDTO client)
+    {
+        using(var context = new DaoContext())
+        {
+            var clientID = context.Client.Where(c=>c.login == client.login && c.passwd == client.passwd).Single();
+            return clientID.id;
+        }
+    }
+    public static ClientDTO getByLogin(ClientDTO login)
+    {
+        ClientDTO clientDTO = new ClientDTO();
+        using(var context = new DaoContext())
+        {
+            var clientDAO = context.Client.Where(c => c.login == login.login && c.passwd == login.passwd).Single();
+            clientDTO.name = clientDAO.name;
+            clientDTO.date_of_birth = clientDAO.date_of_birth;
+            clientDTO.document = clientDAO.document;
+            clientDTO.email = clientDAO.email;
+            clientDTO.phone = clientDAO.phone;
+            clientDTO.login = clientDAO.login;
+            clientDTO.passwd = clientDAO.passwd;
+            return clientDTO;
+        }
+    }
     public List<ClientDTO> getAll()
     {
         return this.clientDTO;

@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+
 using DTO;
 using Model;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Controller.Controllers;
 
@@ -9,6 +10,7 @@ namespace Controller.Controllers;
 [Route("Product")]
 public class ProductController : ControllerBase
 {
+    [Authorize]
     [HttpGet]
     [Route("all")]
     public IActionResult allProducts()
