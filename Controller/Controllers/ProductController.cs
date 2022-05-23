@@ -10,7 +10,6 @@ namespace Controller.Controllers;
 [Route("Product")]
 public class ProductController : ControllerBase
 {
-    [Authorize]
     [HttpGet]
     [Route("all")]
     public IActionResult allProducts()
