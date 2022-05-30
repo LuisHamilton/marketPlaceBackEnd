@@ -32,6 +32,7 @@ public class StockController : ControllerBase
             id = id
         };
     }
+
     [HttpPut]
     [Route("update/{CNPJ}/{bar_code}")]
     public object updateStock(StocksDTO stock,String CNPJ, String bar_code) 
@@ -45,5 +46,31 @@ public class StockController : ControllerBase
             loja = stock.store,
             produto = stock.product,
         };
+    }
+
+    [HttpGet]
+    [Route("all")]
+    public IActionResult allProducts()
+    {
+        var response = Stocks.getAllProducts();
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
+    }
+
+    [HttpGet]
+    [Route("{productID}/{storeID}")]
+    public IActionResult getDetails(int productID, int storeID)
+    {
+        Console.WriteLine(productID);
+        Console.WriteLine(storeID);
+        var response = Model.Stocks.getInformation(productID, storeID);
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
     }
 }

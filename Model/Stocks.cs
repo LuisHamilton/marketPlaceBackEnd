@@ -93,6 +93,52 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
         return stocksDTO;
     }
 
+    public static List<object> getAllProducts()
+    {
+        List<object> produtos = new List<object>();
+
+        using (var context = new DaoContext())
+        {
+            var stocks = context.Stocks.Include(s => s.product).Include(s => s.store).ToList();
+            foreach (var stock in stocks)
+            {
+                produtos.Add(new
+                {
+                    id = stock.product.id,
+                    storeid = stock.store.id,
+                    name = stock.product.name,
+                    bar_code = stock.product.bar_code,
+                    image = stock.product.image,
+                    description = stock.product.description,
+                    price = stock.unit_price,
+                    store = stock.store.name
+                });
+            }
+        }
+        return produtos;
+    }
+
+    public static object getInformation(int productID, int storeID)
+    {
+        using (var context = new DaoContext())
+        {   
+            var produto = context.Stocks.Include(s => s.product).Include(s => s.store)
+            .Where(s => s.product.id == productID && s.store.id == storeID).Single();
+            
+            return new{
+                id = produto.product.id,
+                storeid = produto.store.id,
+                store = produto.store.name,
+                name = produto.product.name,
+                bar_code = produto.product.bar_code,
+                description = produto.product.description,
+                image = produto.product.image,
+                price = produto.unit_price,
+                quantity = produto.quantity
+            };
+        }
+    }
+
     //GETs e SETs
     public Store getStore(){return store;}
     public void setStore(Store store){this.store=store;}

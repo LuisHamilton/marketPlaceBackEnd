@@ -21,6 +21,21 @@ public class ProductController : ControllerBase
 
         return result;
     }
+
+    [HttpGet]
+    [Route("{productID}/{storeID}")]
+    public IActionResult getDetails(int productID, int storeID)
+    {
+        Console.WriteLine(productID);
+        Console.WriteLine(storeID);
+        var response = Model.Product.getInformation(productID, storeID);
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
+    }
+
     [HttpPost]
     [Route("create")]
     public object createProduct([FromBody]ProductDTO product)

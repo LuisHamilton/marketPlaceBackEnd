@@ -25,10 +25,10 @@ public class ClientController : ControllerBase
     [Route("login")]
     public IActionResult tokenGenerate([FromBody]ClientDTO login)
     {
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         if (login != null && login.login != null && login.passwd != null)
         {
             var user = Model.Client.getByLogin(login);
-
             if(user != null)
             {
                 var claims = new[]{

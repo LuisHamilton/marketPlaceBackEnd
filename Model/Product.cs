@@ -102,7 +102,7 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
         using (var context = new DaoContext())
         {
-            var stocks = context.Stocks.Include(s => s.product). ToList();
+            var stocks = context.Stocks.Include(s => s.product).ToList();
             foreach (var stock in stocks)
             {
                 produtos.Add(new
@@ -117,6 +117,34 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
             }
         }
         return produtos;
+    }
+    public static object getInformation(int productID, int storeID)
+    {
+        using (var context = new DaoContext())
+        {   
+            try{
+                var produto = context.Stocks.Include(s => s.store).Join(context.Product, s => s.product.bar_code, p => p.bar_code, (s, p) => new
+                {
+                    id = p.id,
+                    storeid = s.store.id,
+                    store = s.store.name,
+                    name = p.name,
+                    bar_code = p.bar_code,
+                    description = p.description,
+                    image = p.image,
+                    price = s.unit_price,
+                    quantity = s.quantity
+                }).Where(x => x.id == productID && x.storeid == storeID).Single();
+
+                return produto;
+
+            }catch(Exception error){
+                Console.Write(error);
+
+            }
+            
+            return new{};
+        }
     }
     public ProductDTO convertModelToDTO()
     {
