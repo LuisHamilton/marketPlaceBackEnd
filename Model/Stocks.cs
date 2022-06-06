@@ -55,6 +55,8 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
                 store = storeDAO
             };
             context.Stocks.Add(stocksDAO);
+            context.Entry(stocksDAO.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Entry(stocksDAO.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
             id = stocksDAO.id;
         }

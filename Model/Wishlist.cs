@@ -47,6 +47,8 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
                 products = productDAO
             };
             context.WishList.Add(wishlistDAO);
+            context.Entry(wishlistDAO.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Entry(wishlistDAO.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
             id = wishlistDAO.id;
         }

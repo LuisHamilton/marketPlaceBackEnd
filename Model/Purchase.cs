@@ -68,7 +68,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
             var storeDAO = context.Store.Where(c => c.CNPJ == this.store.getCNPJ()).Single();
             var productsDAO = context.Product.Where(c => c.bar_code == this.products.First().getBarCode()).Single();
 
-            var purchase = new DAO.Purchase{
+            var purchaseDAO = new DAO.Purchase{
                 client = clientDAO,
                 store = storeDAO,
                 products = productsDAO,
@@ -80,16 +80,16 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
                 number_nf = this.number_nf
             };
 
-            context.Purchase.Add(purchase);
-            context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-            context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-            context.Entry(purchase.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Purchase.Add(purchaseDAO);
+            context.Entry(purchaseDAO.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Entry(purchaseDAO.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Entry(purchaseDAO.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
 
             this.products.RemoveAt(0);
             this.save();
 
-            id = purchase.id;
+            id = purchaseDAO.id;
 
         }
          return id;

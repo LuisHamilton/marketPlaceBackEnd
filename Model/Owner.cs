@@ -72,6 +72,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
                 address = addressDAO
             };
             context.Owner.Add(ownerDAO);
+            context.Entry(ownerDAO.address).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
             id = ownerDAO.id;
         }
