@@ -72,7 +72,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 address = addressDAO
             };
             context.Client.Add(clientDAO);
-            context.Entry(clientDAO.address).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            // context.Entry(clientDAO.address).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
             id = clientDAO.id;
         }

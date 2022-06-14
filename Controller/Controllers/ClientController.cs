@@ -70,7 +70,7 @@ public class ClientController : ControllerBase
         var id = clientModel.save();
         return new
         {
-            nome = client.name,
+            nome = client.name,                 
             dataAniversario = client.date_of_birth,
             documento = client.document,
             email = client.email,
