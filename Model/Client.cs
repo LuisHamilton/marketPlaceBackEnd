@@ -47,6 +47,17 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return client;
     }
     public void delete(ClientDTO obj){}
+    public bool verify(String userLogin){
+        using(var context = new DaoContext())
+        {
+            var exist = context.Client.Where(c => c.login == userLogin).Single();
+            if(exist==null){
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }
     public int save()
     {
         var id = 0;
@@ -83,6 +94,28 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     {
         return new ClientDTO();
     }
+    public static ClientDTO getById(int Id)
+    {
+
+        using(var context = new DaoContext())
+        {
+            ClientDTO clientDTO = new ClientDTO();
+            var clientDAO = context.Client.Include(c=>c.address).Where(c => c.id == Id).Single();
+            clientDTO.name = clientDAO.name;
+            clientDTO.date_of_birth = clientDAO.date_of_birth;
+            clientDTO.document = clientDAO.document;
+            clientDTO.email = clientDAO.email;
+            clientDTO.phone = clientDAO.phone;
+            clientDTO.login = clientDAO.login;
+            clientDTO.passwd = clientDAO.passwd;
+            clientDTO.address.street = clientDAO.address.street;
+            clientDTO.address.city = clientDAO.address.city;
+            clientDTO.address.state = clientDAO.address.state;
+            clientDTO.address.country = clientDAO.address.country;
+            clientDTO.address.postal_code = clientDAO.address.postal_code;
+            return clientDTO;
+        }
+    }
     public static object findByDocument(String doc)
     {
         using(var context = new DaoContext())
@@ -105,6 +138,21 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         using(var context = new DaoContext())
         {
             var clientDAO = context.Client.Where(c => c.login == login.login && c.passwd == login.passwd).Single();
+            clientDTO.name = clientDAO.name;
+            clientDTO.date_of_birth = clientDAO.date_of_birth;
+            clientDTO.document = clientDAO.document;
+            clientDTO.email = clientDAO.email;
+            clientDTO.phone = clientDAO.phone;
+            clientDTO.login = clientDAO.login;
+            clientDTO.passwd = clientDAO.passwd;
+            return clientDTO;
+        }
+    }
+    public static ClientDTO FindByLogin(String login){
+        ClientDTO clientDTO = new ClientDTO();
+        using(var context = new DaoContext())
+        {
+            var clientDAO = context.Client.Where(c => c.login == login).Single();
             clientDTO.name = clientDAO.name;
             clientDTO.date_of_birth = clientDAO.date_of_birth;
             clientDTO.document = clientDAO.document;

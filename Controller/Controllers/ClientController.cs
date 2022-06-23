@@ -67,24 +67,51 @@ public class ClientController : ControllerBase
     public object registerClient([FromBody] ClientDTO client)
     {
         var clientModel = Model.Client.convertDTOToModel(client);
-        var id = clientModel.save();
-        return new
-        {
-            nome = client.name,                 
-            dataAniversario = client.date_of_birth,
-            documento = client.document,
-            email = client.email,
-            telefone = client.address,
-            login = client.login,
-            senha = client.passwd,
-            endereco = client.address,
-            id = id
-        };
+        var existe = clientModel.verify(client.login);
+        if(existe == true){
+            return null;
+        }else{
+            var id = clientModel.save();
+            return new
+            {
+                nome = client.name,                 
+                dataAniversario = client.date_of_birth,
+                documento = client.document,
+                email = client.email,
+                telefone = client.address,
+                login = client.login,
+                senha = client.passwd,
+                endereco = client.address,
+                id = id
+            };
+        }
     }
     [HttpGet]
-    [Route("get/{document}")]
-    public object getInformations(String document)
+    [Route("get/{login}")]
+    public object getInformations(String login)
     {
-        return Model.Client.findByDocument(document);
+        return Model.Client.FindByLogin(login);
+    }
+
+    [HttpGet]
+    [Route("get")]
+    public IActionResult getInformation()
+    {
+        var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var clientDTO = Model.Client.getById(ClientID);
+        var client = Model.Client.convertDTOToModel(clientDTO);
+
+        var clientobj = new{
+            name = client.getName(),
+            email = client.getEmail(),
+            date_of_birth = client.getDateOfBirth(),
+            document = client.getDocument(),
+            phone = client.getPhone(),
+            login = client.getLogin(),
+            passwd = client.getPasswd(),
+            address = client.getAddress()
+        };
+
+        return new ObjectResult(clientobj);
     }
 }
