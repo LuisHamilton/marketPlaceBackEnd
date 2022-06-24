@@ -99,19 +99,6 @@ public class ClientController : ControllerBase
     {
         var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
         var clientDTO = Model.Client.getById(ClientID);
-        var client = Model.Client.convertDTOToModel(clientDTO);
-
-        var clientobj = new{
-            name = client.getName(),
-            email = client.getEmail(),
-            date_of_birth = client.getDateOfBirth(),
-            document = client.getDocument(),
-            phone = client.getPhone(),
-            login = client.getLogin(),
-            passwd = client.getPasswd(),
-            address = client.getAddress()
-        };
-
-        return new ObjectResult(clientobj);
+        return Ok(clientDTO);
     }
 }

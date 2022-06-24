@@ -83,6 +83,52 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     {
         return new OwnerDTO();
     }
+    public static OwnerDTO getById(int Id)
+    {
+        using(var context = new DaoContext())
+        {
+            OwnerDTO ownerDTO = new OwnerDTO();
+            var ownerDAO = context.Owner.Include(c=>c.address).Where(c => c.id == Id).Single();
+            ownerDTO.name = ownerDAO.name;
+            ownerDTO.date_of_birth = ownerDAO.date_of_birth;
+            ownerDTO.document = ownerDAO.document;
+            ownerDTO.email = ownerDAO.email;
+            ownerDTO.phone = ownerDAO.phone;
+            ownerDTO.login = ownerDAO.login;
+            ownerDTO.passwd = ownerDAO.passwd;
+            ownerDTO.address = new AddressDTO();
+            ownerDTO.address.street = ownerDAO.address.street;
+            ownerDTO.address.city = ownerDAO.address.city;
+            ownerDTO.address.state = ownerDAO.address.state;
+            ownerDTO.address.country = ownerDAO.address.country;
+            ownerDTO.address.postal_code = ownerDAO.address.postal_code;
+            return ownerDTO;
+        }
+    }
+    public static int findId(OwnerDTO owner)
+    {
+        using(var context = new DaoContext())
+        {
+            var ownerID = context.Owner.Where(c=>c.login == owner.login && c.passwd == owner.passwd).Single();
+            return ownerID.id;
+        }
+    }
+    public static OwnerDTO getByLogin(OwnerDTO login)
+    {
+        OwnerDTO ownerDTO = new OwnerDTO();
+        using(var context = new DaoContext())
+        {
+            var ownerDAO = context.Owner.Where(c => c.login == login.login && c.passwd == login.passwd).Single();
+            ownerDTO.name = ownerDAO.name;
+            ownerDTO.date_of_birth = ownerDAO.date_of_birth;
+            ownerDTO.document = ownerDAO.document;
+            ownerDTO.email = ownerDAO.email;
+            ownerDTO.phone = ownerDAO.phone;
+            ownerDTO.login = ownerDAO.login;
+            ownerDTO.passwd = ownerDAO.passwd;
+            return ownerDTO;
+        }
+    }
     public static object findByDocument(String doc)
     {
         using(var context = new DaoContext())

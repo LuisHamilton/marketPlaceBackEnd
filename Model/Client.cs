@@ -96,7 +96,6 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     }
     public static ClientDTO getById(int Id)
     {
-
         using(var context = new DaoContext())
         {
             ClientDTO clientDTO = new ClientDTO();
@@ -108,6 +107,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             clientDTO.phone = clientDAO.phone;
             clientDTO.login = clientDAO.login;
             clientDTO.passwd = clientDAO.passwd;
+            clientDTO.address = new AddressDTO();
             clientDTO.address.street = clientDAO.address.street;
             clientDTO.address.city = clientDAO.address.city;
             clientDTO.address.state = clientDAO.address.state;
