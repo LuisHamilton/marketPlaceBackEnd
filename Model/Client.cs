@@ -50,11 +50,14 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     public bool verify(String userLogin){
         using(var context = new DaoContext())
         {
-            var exist = context.Client.Where(c => c.login == userLogin).Single();
-            if(exist==null){
+            try{
+                var exist = context.Client.Where(c => c.login == userLogin).Single();
+                if(exist!=null){
+                    return true;
+                }
                 return false;
-            }else{
-                return true;
+            }catch(Exception ex){
+                return false;
             }
         }
     }

@@ -47,6 +47,20 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         return owner;
     }
     public void delete(OwnerDTO obj){}
+    public bool verify(String userLogin){
+        using(var context = new DaoContext())
+        {
+            try{
+                var exist = context.Owner.Where(c => c.login == userLogin).Single();
+                if(exist!=null){
+                    return true;
+                }
+                return false;
+            }catch(Exception ex){
+                return false;
+            }
+        }
+    }
     public int save()
     {
         var id = 0;
@@ -72,7 +86,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
                 address = addressDAO
             };
             context.Owner.Add(ownerDAO);
-            context.Entry(ownerDAO.address).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            // context.Entry(ownerDAO.address).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
             id = ownerDAO.id;
         }

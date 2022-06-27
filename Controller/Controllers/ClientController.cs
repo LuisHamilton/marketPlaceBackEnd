@@ -68,22 +68,11 @@ public class ClientController : ControllerBase
     {
         var clientModel = Model.Client.convertDTOToModel(client);
         var existe = clientModel.verify(client.login);
-        if(existe == true){
+        if(existe){
             return null;
         }else{
             var id = clientModel.save();
-            return new
-            {
-                nome = client.name,                 
-                dataAniversario = client.date_of_birth,
-                documento = client.document,
-                email = client.email,
-                telefone = client.address,
-                login = client.login,
-                senha = client.passwd,
-                endereco = client.address,
-                id = id
-            };
+            return Ok(id);
         }
     }
     [HttpGet]
