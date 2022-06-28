@@ -75,12 +75,6 @@ public class ClientController : ControllerBase
             return Ok(id);
         }
     }
-    [HttpGet]
-    [Route("get/{login}")]
-    public object getInformations(String login)
-    {
-        return Model.Client.FindByLogin(login);
-    }
 
     [HttpGet]
     [Route("get")]

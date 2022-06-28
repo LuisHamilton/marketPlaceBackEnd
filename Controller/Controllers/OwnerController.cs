@@ -74,10 +74,13 @@ public class OwnerController : ControllerBase
             return Ok(id);
         }
     }
+
     [HttpGet]
-    [Route("get/{document}")]
-    public object getInformations(String document)
+    [Route("get")]
+    public IActionResult getInformations()
     {
-        return Model.Owner.findByDocument(document);
+        var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var ownerDTO = Model.Owner.getById(OwnerID);
+        return Ok(ownerDTO);
     }
 }
