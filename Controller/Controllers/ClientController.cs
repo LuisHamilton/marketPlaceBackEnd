@@ -84,4 +84,12 @@ public class ClientController : ControllerBase
         var clientDTO = Model.Client.getById(ClientID);
         return Ok(clientDTO);
     }
+
+    [HttpGet]
+    [Route("getId")]
+    public IActionResult getId()
+    {
+        var clientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        return Ok(clientID);
+    }   
 }

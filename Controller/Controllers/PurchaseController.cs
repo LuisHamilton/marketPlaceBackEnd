@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using DTO;
 using Model;
 using Microsoft.AspNetCore.Mvc;
@@ -21,25 +20,26 @@ public class PurchaseController : ControllerBase
     {
         return Model.Purchase.findByCNPJ(CNPJ);
     }
-    [HttpPost]
-    [Route("make")]
-    public object makePurchase([FromBody]PurchaseDTO purchase)
+
+    [HttpGet]
+    [Route("all")]
+    public IActionResult allPurchases()
     {
-        var purchaseModel = Model.Purchase.convertDTOToModel(purchase);
-        var id = purchaseModel.save();
-        return new
-        {
-            data = purchase.data_purchase,
-            tipopagamento=purchase.payment_type,
-            status=purchase.purchase_status,
-            valor=purchase.purchase_values,
-            numeroConfirmacao=purchase.number_confirmation,
-            numeroNF=purchase.number_nf,
-            cliente=purchase.client,
-            loja=purchase.store,
-            produtos=purchase.products,
-            id = id
-        };   
-        
+        var response = Purchase.getAllPurchases();
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
     }
+    // [HttpPost]
+    // [Route("make")]
+    // public IActionResult makePurchase([FromBody]PurchaseDTO purchase)
+    // {
+    //     var ClientId = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+    //     // var purchaseModel = Model.Purchase.convertDTOToModel(purchase);
+    //     // var id = purchaseModel.save(ClientId, purchase.products.id, purchase.store.id, purchase.data_purchase, purchase.payment_type,
+    //     // purchase.purchase_status, purchase.number_confirmation, purchase.number_nf, purchase.purchase_values);
+    //     // return Ok(id);
+    // }
 }

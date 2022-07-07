@@ -111,6 +111,26 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
         return this.purchaseDTO;      
     }
 
+    public static List<object> getAllPurchases(){
+        List<object> compras = new List<object>();
+
+        using(var context = new DaoContext()){
+            var purchases = context.Purchase.Include(s => s.store).Include(p => p.products).ToList();
+            foreach(var purchase in purchases){
+                compras.Add(new{
+                    id = purchase.id,
+                    productId = purchase.products.id,
+                    productName = purchase.products.name,
+                    productImg = purchase.products.image,
+                    storeId = purchase.store.id,
+                    storeName = purchase.store.name,
+                    purchaseDate = purchase.data_purchase.ToString("dd/MM/yyyy"),
+                    purchaseAmount = purchase.purchase_values
+                });
+            }
+        }
+        return compras;
+    }
    
     public PurchaseDTO convertModelToDTO()
     {
