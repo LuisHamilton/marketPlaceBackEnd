@@ -140,7 +140,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
 
             return new{
                 id = compra.id,
-                purchaseData = compra.data_purchase,
+                purchaseData = compra.data_purchase.ToString("dd/MM/yyyy"),
                 purchaseAmount = compra.purchase_values,
                 purchaseNF = compra.number_nf,
                 purchaseNC = compra.number_confirmation,
