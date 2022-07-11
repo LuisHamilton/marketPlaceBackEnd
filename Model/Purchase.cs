@@ -111,11 +111,12 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
         return this.purchaseDTO;      
     }
 
-    public static List<object> getAllPurchases(){
+    public static List<object> getAllPurchases(int clientId){
         List<object> compras = new List<object>();
 
         using(var context = new DaoContext()){
-            var purchases = context.Purchase.Include(s => s.store).Include(p => p.products).ToList();
+            var purchases = context.Purchase.Include(c => c.client).Include(s => s.store).Include(p => p.products).Where(c => c.client.id == clientId).ToList();
+            Console.WriteLine(purchases.Count());
             foreach(var purchase in purchases){
                 compras.Add(new{
                     id = purchase.id,
@@ -124,6 +125,8 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
                     productImg = purchase.products.image,
                     storeId = purchase.store.id,
                     storeName = purchase.store.name,
+                    clientId = purchase.client.id,
+                    clientName = purchase.client.name,
                     purchaseDate = purchase.data_purchase.ToString("dd/MM/yyyy"),
                     purchaseAmount = purchase.purchase_values
                 });

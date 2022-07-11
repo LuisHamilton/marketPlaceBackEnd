@@ -81,6 +81,7 @@ public class OwnerController : ControllerBase
     {
         var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
         var ownerDTO = Model.Owner.getById(OwnerID);
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         return Ok(ownerDTO);
     }
 }

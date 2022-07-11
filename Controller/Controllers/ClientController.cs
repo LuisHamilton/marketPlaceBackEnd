@@ -82,6 +82,7 @@ public class ClientController : ControllerBase
     {
         var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
         var clientDTO = Model.Client.getById(ClientID);
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
         return Ok(clientDTO);
     }
 
