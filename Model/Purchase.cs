@@ -116,7 +116,6 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
 
         using(var context = new DaoContext()){
             var purchases = context.Purchase.Include(c => c.client).Include(s => s.store).Include(p => p.products).Where(c => c.client.id == clientId).ToList();
-            Console.WriteLine(purchases.Count());
             foreach(var purchase in purchases){
                 compras.Add(new{
                     id = purchase.id,
@@ -133,6 +132,27 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
             }
         }
         return compras;
+    }
+    public static object getPurchaseDetail(int clientID, int productID, int storeID){
+        using(var context = new DaoContext()){
+            var compra = context.Purchase.Include(c => c.client).Include(p => p.products).Include(s => s.store)
+            .Where(cp => cp.client.id == clientID && cp.products.id == productID && cp.store.id == storeID).Single();
+
+            return new{
+                id = compra.id,
+                purchaseData = compra.data_purchase,
+                purchaseAmount = compra.purchase_values,
+                purchaseNF = compra.number_nf,
+                purchaseNC = compra.number_confirmation,
+                purchasePayment = compra.payment_type,
+                storeName = compra.store.name,
+                productImg = compra.products.image,
+                productName = compra.products.name,
+                clientName = compra.client.name,
+                clientDocument = compra.client.document,
+                clientPhone = compra.client.phone
+            };
+        }
     }
    
     public PurchaseDTO convertModelToDTO()
