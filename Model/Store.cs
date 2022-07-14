@@ -132,6 +132,13 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
              this.purchases.Add(purchase);
          }
     }
+    public static int getStoreId(int ownerId){
+        using(var context = new DaoContext()){
+            var store = context.Store.Where(s=>s.owner.id == ownerId).Single();
+
+            return store.id;
+        }
+    }
     public Owner getOwner(){return owner;}
     public void setOwner(Owner owner){this.owner=owner;}
     public String getName(){return name;}

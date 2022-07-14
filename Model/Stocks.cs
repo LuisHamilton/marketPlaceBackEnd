@@ -119,6 +119,30 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
         }
         return produtos;
     }
+    public static List<object> getOwnerProducts(int ownerId)
+    {
+        List<object> produtos = new List<object>();
+
+        using (var context = new DaoContext())
+        {
+            var stocks = context.Stocks.Include(s => s.product).Include(s => s.store).Where(s=>s.store.owner.id == ownerId).ToList();
+            foreach (var stock in stocks)
+            {
+                produtos.Add(new
+                {
+                    id = stock.product.id,
+                    storeid = stock.store.id,
+                    name = stock.product.name,
+                    bar_code = stock.product.bar_code,
+                    image = stock.product.image,
+                    description = stock.product.description,
+                    price = stock.unit_price,
+                    store = stock.store.name
+                });
+            }
+        }
+        return produtos;
+    }
 
     public static object getInformation(int productID, int storeID)
     {

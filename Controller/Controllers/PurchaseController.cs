@@ -43,6 +43,19 @@ public class PurchaseController : ControllerBase
 
         return result;
     }
+    [HttpGet]
+    [Route("allsales")]
+    public IActionResult allSales()
+    {
+        var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var storeID = Store.getStoreId(OwnerID);
+        var response = Purchase.getAllSales(storeID);
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
+    }
 
     [HttpGet]
     [Route("{productId}/{storeId}")]

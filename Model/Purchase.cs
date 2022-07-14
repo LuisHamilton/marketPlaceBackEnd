@@ -133,6 +133,28 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
         }
         return compras;
     }
+    public static List<object> getAllSales(int storeId){
+        List<object> vendas = new List<object>();
+
+        using(var context = new DaoContext()){
+            var sales = context.Purchase.Include(c => c.client).Include(s => s.store).Include(p => p.products).Where(c => c.store.id == storeId).ToList();
+            foreach(var sale in sales){
+                vendas.Add(new{
+                    id = sale.id,
+                    productId = sale.products.id,
+                    productName = sale.products.name,
+                    productImg = sale.products.image,
+                    storeId = sale.store.id,
+                    storeName = sale.store.name,
+                    clientId = sale.client.id,
+                    clientName = sale.client.name,
+                    purchaseDate = sale.data_purchase.ToString("dd/MM/yyyy"),
+                    purchaseAmount = sale.purchase_values
+                });
+            }
+        }
+        return vendas;
+    }
     public static object getPurchaseDetail(int clientID, int productID, int storeID){
         using(var context = new DaoContext()){
             var compra = context.Purchase.Include(c => c.client).Include(p => p.products).Include(s => s.store)

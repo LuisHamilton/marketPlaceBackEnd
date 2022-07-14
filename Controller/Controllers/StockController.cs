@@ -59,13 +59,23 @@ public class StockController : ControllerBase
 
         return result;
     }
+    [HttpGet]
+    [Route("ownerStock")]
+    public IActionResult ownerProducts()
+    {
+        var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var response = Stocks.getOwnerProducts(OwnerID);
+        var result = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
+    }
 
     [HttpGet]
     [Route("{productID}/{storeID}")]
     public IActionResult getDetails(int productID, int storeID)
     {
-        Console.WriteLine(productID);
-        Console.WriteLine(storeID);
         var response = Model.Stocks.getInformation(productID, storeID);
         var result = new ObjectResult(response);
 
