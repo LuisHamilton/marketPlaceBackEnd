@@ -7,5 +7,6 @@ public class Stocks
     public Double unit_price;
     public Store store; //Dependência
     public Product product; //Dependência
+    public Stocks stocks;
 
 }

@@ -99,6 +99,7 @@ public class DaoContext : DbContext
             entity.HasKey(e=>e.id);
             entity.HasOne(d=>d.products);
             entity.HasOne(d=>d.client);
+            entity.HasOne(s=>s.stocks);
         });
 
 

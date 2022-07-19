@@ -54,9 +54,9 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
                 product = productDAO,
                 store = storeDAO
             };
-            context.Stocks.Add(stocksDAO);
             context.Entry(stocksDAO.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.Entry(stocksDAO.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Stocks.Add(stocksDAO);
             context.SaveChanges();
             id = stocksDAO.id;
         }
@@ -113,7 +113,8 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
                     image = stock.product.image,
                     description = stock.product.description,
                     price = stock.unit_price,
-                    store = stock.store.name
+                    store = stock.store.name,
+                    stocksid = stock.id
                 });
             }
         }
@@ -137,6 +138,7 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
                     image = stock.product.image,
                     description = stock.product.description,
                     price = stock.unit_price,
+                    quantity = stock.quantity,
                     store = stock.store.name
                 });
             }

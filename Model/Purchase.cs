@@ -57,16 +57,15 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     {
 
     }
-    public int save()
+    public int save(int clientID, int storeID, int productID)
     {
         var id = 0;
         using(var context = new DaoContext())
         {
-            if (this.products.Count() == 0) { return -1; }
 
-            var clientDAO = context.Client.Where(c => c.document == this.client.getDocument()).Single();
-            var storeDAO = context.Store.Where(c => c.CNPJ == this.store.getCNPJ()).Single();
-            var productsDAO = context.Product.Where(c => c.bar_code == this.products.First().getBarCode()).Single();
+            var clientDAO = context.Client.Where(c => c.id == clientID).Single();
+            var storeDAO = context.Store.Where(c => c.id == storeID).Single();
+            var productsDAO = context.Product.Where(c => c.id == productID).Single();
 
             var purchaseDAO = new DAO.Purchase{
                 client = clientDAO,
@@ -80,19 +79,14 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
                 number_nf = this.number_nf
             };
 
-            context.Purchase.Add(purchaseDAO);
             context.Entry(purchaseDAO.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.Entry(purchaseDAO.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.Entry(purchaseDAO.products).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Purchase.Add(purchaseDAO);
             context.SaveChanges();
-
-            this.products.RemoveAt(0);
-            this.save();
-
             id = purchaseDAO.id;
-
         }
-         return id;
+        return id;
     }
     public void update(PurchaseDTO obj)
     {

@@ -71,7 +71,7 @@ public class OwnerController : ControllerBase
             return null;
         }else{
             var id = ownerModel.save();
-            return Ok(id);
+            return new ObjectResult(id);
         }
     }
 

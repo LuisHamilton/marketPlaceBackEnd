@@ -26,8 +26,6 @@ public class ProductController : ControllerBase
     [Route("{productID}/{storeID}")]
     public IActionResult getDetails(int productID, int storeID)
     {
-        Console.WriteLine(productID);
-        Console.WriteLine(storeID);
         var response = Model.Product.getInformation(productID, storeID);
         var result = new ObjectResult(response);
 
@@ -35,28 +33,30 @@ public class ProductController : ControllerBase
 
         return result;
     }
+    [HttpGet]
+    [Route("get/{id}")]
+    public IActionResult getObject(int id){
+        var response = Model.Product.getById(id);
+        var result = new ObjectResult(response);
 
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+
+        return result;
+    }
     [HttpPost]
-    [Route("create")]
-    public object createProduct([FromBody]ProductDTO product)
+    [Route("register")]
+    public IActionResult createProduct([FromBody]ProductDTO product)
     {
         var productModel = Model.Product.convertDTOToModel(product);
         var id = productModel.save();
-        return new
-        {
-            nome = product.name,
-            codigoDeBarras=product.bar_code,
-            imagem = product.image,
-            descricao = product.description,
-            id = id
-        };   
+        return new ObjectResult(id);
     }
-    [HttpDelete]
-    [Route("delete/{bar_code}")]
-    public String deleteProduct(String bar_code)
-    {
-        return Model.Product.deleteProduct(bar_code);
-    }
+    // [HttpDelete]
+    // [Route("delete/{bar_code}")]
+    // public String deleteProduct(String bar_code)
+    // {
+    //     return Model.Product.deleteProduct(bar_code);
+    // }
     [HttpPut]
     [Route("update/{bar_code}")]
     public object updateProduct(ProductDTO product,String bar_code)

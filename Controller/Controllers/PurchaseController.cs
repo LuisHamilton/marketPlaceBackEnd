@@ -8,28 +8,22 @@ namespace Controller.Controllers;
 [Route("Purchase")]
 public class PurchaseController : ControllerBase
 {
-    // [HttpGet]
-    // [Route("get/client/{document}")]
-    // public object getClientPurchase(String document)
-    // {
-    //     return Model.Purchase.findByDocument(document);
-    // }
-    // [HttpGet]
-    // [Route("get/store/{CNPJ}")]
-    // public object getStorePurchase(String CNPJ)
-    // {
-    //     return Model.Purchase.findByCNPJ(CNPJ);
-    // }
-    // [HttpPost]
-    // [Route("make")]
-    // public IActionResult makePurchase([FromBody]PurchaseDTO purchase)
-    // {
-    //     var ClientId = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
-    //     // var purchaseModel = Model.Purchase.convertDTOToModel(purchase);
-    //     // var id = purchaseModel.save(ClientId, purchase.products.id, purchase.store.id, purchase.data_purchase, purchase.payment_type,
-    //     // purchase.purchase_status, purchase.number_confirmation, purchase.number_nf, purchase.purchase_values);
-    //     // return Ok(id);
-    // }
+    [HttpPost]
+    [Route("make/{productId}/{storeId}")]
+    public IActionResult makePurchase([FromBody]PurchaseDTO purchase, int productId, int storeId)
+    {
+        var ClientId = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var clientDTO = Model.Client.getById(ClientId);
+        var productDTO = Model.Product.getById(productId);
+        var storeDTO = Model.Store.getById(storeId);
+        purchase.client = clientDTO;
+        purchase.products.Add(productDTO);
+        purchase.store = storeDTO;
+
+        var purchaseModel = Model.Purchase.convertDTOToModel(purchase);
+        var id = purchaseModel.save(ClientId, storeId, productId);
+        return Ok();
+    }
 
     [HttpGet]
     [Route("all")]

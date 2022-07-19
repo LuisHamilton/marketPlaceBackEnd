@@ -69,21 +69,42 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         return new ProductDTO();
     }
-
-    public static String deleteProduct(String Bar_Code)
+    public static ProductDTO getById(int Id)
     {
         using(var context = new DaoContext())
         {
-            var productDao = context.Product.Where(p=>p.bar_code == Bar_Code).Single();
-            var wishlistDao = context.WishList.Include(w=>w.products).Where(w=>w.products.id == productDao.id);
-            var purchaseDao = context.Purchase.Include(p=>p.products).Where(p=>p.products.id == productDao.id);
-            context.WishList.RemoveRange(wishlistDao);
-            context.Purchase.RemoveRange(purchaseDao);
-            context.Product.Remove(productDao);
-            context.SaveChanges();
-            return "Product removed successfuly";
+            ProductDTO productDTO = new ProductDTO();
+            var productDAO = context.Product.Where(p => p.id == Id).Single();
+            productDTO.name = productDAO.name;
+            productDTO.bar_code = productDAO.bar_code;
+            productDTO.image = productDAO.image;
+            productDTO.description = productDAO.description;
+            return productDTO;
         }
     }
+    public static int getIdByBarCode(String Bar_code){
+        var id = 0;
+        using(var context= new DaoContext()){
+            var productDAO = context.Product.FirstOrDefault(p=>p.bar_code == Bar_code);
+            id = productDAO.id;
+        }
+        return id;
+    }
+
+    // public static String deleteProduct(String Bar_Code)
+    // {
+    //     using(var context = new DaoContext())
+    //     {
+    //         var productDao = context.Product.Where(p=>p.bar_code == Bar_Code).Single();
+    //         var wishlistDao = context.WishList.Include(w=>w.products).Where(w=>w.products.id == productDao.id);
+    //         var purchaseDao = context.Purchase.Include(p=>p.products).Where(p=>p.products.id == productDao.id);
+    //         context.WishList.RemoveRange(wishlistDao);
+    //         context.Purchase.RemoveRange(purchaseDao);
+    //         context.Product.Remove(productDao);
+    //         context.SaveChanges();
+    //         return "Product removed successfuly";
+    //     }
+    // }
 
     public int findId(){
         using(var context = new DaoContext())

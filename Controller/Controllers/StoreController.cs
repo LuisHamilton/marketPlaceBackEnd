@@ -17,24 +17,24 @@ public class StoreController : ControllerBase
     }
     [HttpPost]
     [Route("register")]
-    public object registerStore([FromBody]StoreDTO store)
+    public IActionResult registerStore([FromBody]StoreDTO store)
     {
+        var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
         var storeModel = Model.Store.convertDTOToModel(store);
-        var ownerID = Model.Owner.findToStore(store.owner.document);
-        var id = storeModel.save(ownerID);
-        return new
-        {
-            nome = store.name,
-            cnpj = store.CNPJ,
-            purchases = store.purchases,
-            owner = store.owner,
-            id = id
-        };
+        var id = storeModel.save(OwnerID);
+        return Ok();
     }
     [HttpGet]
-    [Route("get/{CNPJ}")]
-    public object getStoreInformation(String CNPJ)
+    [Route("get")]
+    public IActionResult getStoreInformation()
     {
-        return Model.Store.findByCNPJ(CNPJ);
+        var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var storeDAO = Model.Store.getByOwner(OwnerID);
+        if(storeDAO==null){
+            return BadRequest();
+        }
+        else{
+            return Ok();
+        }
     }
 }

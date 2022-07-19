@@ -29,10 +29,10 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
         
         store.setName(obj.name);
         store.setCNPJ(obj.CNPJ);
-        foreach(var purch in obj.purchases)
-        {
-            store.addNewPurchase(Purchase.convertDTOToModel(purch));
-        }
+        // foreach(var purch in obj.purchases)
+        // {
+        //     store.addNewPurchase(Purchase.convertDTOToModel(purch));
+        // }
         return store;
     }
 
@@ -46,7 +46,7 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
 
         using(var context = new DaoContext())
         {
-            var ownerDAO = context.Owner.Where(c => c.id == owner).Single();
+            var ownerDAO = context.Owner.FirstOrDefault(o => o.id == owner);
 
             var storeDAO = new DAO.Store{
                 name = this.name,
@@ -54,14 +54,25 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
                 owner = ownerDAO
             };
 
-            context.Store.Add(storeDAO);
             context.Entry(storeDAO.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            context.Store.Add(storeDAO);
             context.SaveChanges();
 
             id = storeDAO.id;
-
         }
          return id;
+    }
+    public static object getByOwner(int OwnerID){
+        using(var context = new DaoContext()){
+            var storeDAO = context.Store.Include(o=>o.owner).FirstOrDefault(s=>s.owner.id == OwnerID);
+            return storeDAO;
+        }
+    }
+    public static int getIdByOwner(int OwnerID){
+        using(var context = new DaoContext()){
+            var storeDAO = context.Store.Include(o=>o.owner).FirstOrDefault(s=>s.owner.id == OwnerID);
+            return storeDAO.id;
+        }
     }
     public void update(StoreDTO obj)
     {
@@ -70,6 +81,30 @@ public class Store : IValidateDataObject, IDataController<StoreDTO, Store>
     public StoreDTO findById(int id)
     {
         return new StoreDTO();
+    }public static StoreDTO getById(int Id)
+    {
+        using(var context = new DaoContext())
+        {
+            StoreDTO storeDTO = new StoreDTO();
+            var storeDAO = context.Store.Include(o=>o.owner).ThenInclude(a=>a.address).Where(s => s.id == Id).Single();
+            storeDTO.name = storeDAO.name;
+            storeDTO.CNPJ = storeDAO.CNPJ;
+            storeDTO.owner = new OwnerDTO();
+            storeDTO.owner.name = storeDAO.owner.name;
+            storeDTO.owner.date_of_birth = storeDAO.owner.date_of_birth;
+            storeDTO.owner.document = storeDAO.owner.document;
+            storeDTO.owner.email = storeDAO.owner.email;
+            storeDTO.owner.phone = storeDAO.owner.phone;
+            storeDTO.owner.login = storeDAO.owner.login;
+            storeDTO.owner.passwd = storeDAO.owner.passwd;
+            storeDTO.owner.address = new AddressDTO();
+            storeDTO.owner.address.street = storeDAO.owner.address.street;
+            storeDTO.owner.address.city = storeDAO.owner.address.city;
+            storeDTO.owner.address.state = storeDAO.owner.address.state;
+            storeDTO.owner.address.country = storeDAO.owner.address.country;
+            storeDTO.owner.address.postal_code = storeDAO.owner.address.postal_code;
+            return storeDTO;
+        }
     }
     public static object findByCNPJ(String cnpj)
     {

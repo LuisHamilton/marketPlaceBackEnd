@@ -10,27 +10,18 @@ namespace Controller.Controllers;
 public class StockController : ControllerBase
 {
     [HttpPost]
-    [Route("addProduct")]
-    public object addProductToStock([FromBody] StocksDTO stock)
+    [Route("register")]
+    public IActionResult addProductToStock([FromBody] StocksDTO stock)
     {
+        var OwnerID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var storeID = Model.Store.getIdByOwner(OwnerID);
+        var storeDTO = Model.Store.getById(storeID);
+        stock.store = storeDTO;
+        var productID = Model.Product.getIdByBarCode(stock.product.bar_code);
         var stockModel = Model.Stocks.convertDTOToModel(stock);
-
-        var prod = stockModel.getProduct();
-        var loja = stockModel.getStore();
-
-        var productID = prod.findId();
-        var storeID = loja.findId();
-
         var id = stockModel.save(storeID, productID, stockModel.getQuantity(), stockModel.getUnitPrice());
 
-        return new
-        {
-            quantidade = stock.quantity,
-            preco_unidade = stock.unit_price,
-            loja = stock.store,
-            produto = stock.product,
-            id = id
-        };
+        return Ok();
     }
 
     [HttpPut]

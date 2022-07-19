@@ -10,28 +10,44 @@ namespace Controller.Controllers;
 public class WishListController : ControllerBase
 {
     [HttpPost]
-    [Route("addProduct")]
-    public object addProductToWishList([FromBody] WishListDTO wishlist)
+    [Route("addProduct/{productID}/{stocksID}")]
+    public object addProductToWishList( int productID, int stocksID)
     {
-        var wishlistModel = Model.WishList.convertDTOToModel(wishlist);
+        var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
 
-        foreach(var prods in wishlistModel.getProducts())
-        {
-            var client = wishlistModel.getClient();
-            var productID = prods.findId();
-            var id = wishlistModel.save(client.getDocument(), productID);
-        }
+        var newID = WishList.save(ClientID, productID, stocksID);
 
         return new
         {
-            documento = wishlist.client.document,
-            produtos = wishlist.products
+            id = newID
         };
     }
     [HttpDelete]
-    [Route("delete/{bar_code}")]
-    public String removeProductFromWishList(String bar_code)
+    [Route("delete/{idStock}")]
+    public String removeProductFromWishList(int idStock)
     {
-        return Model.WishList.removeProductFromWishList(bar_code);
+        var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var wishlist = Model.WishList.removeProductFromWishList(idStock, ClientID);
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        return wishlist;
+    }
+    [HttpGet]
+    [Route("get")]
+    public IActionResult getWishListById(){
+        var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var wish = Model.WishList.find(ClientID);
+        var result = new ObjectResult(wish);
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        return result;
+    }
+    [HttpGet]
+    [Route("verify/{idStock}")]
+    public IActionResult verifyWishExistance(int idStock){
+        var ClientID = UserToken.GetIdFromRequest(Request.Headers["Authorization"].ToString());
+        var wish = Model.WishList.verifyWishExistance(ClientID, idStock);
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        if (wish == null)
+            return NotFound();
+        return Ok();
     }
 }
